@@ -1,0 +1,283 @@
+﻿<style>
+    .bg3 {
+        background-color: rgba(255,255,255,0.95);
+    }
+
+    .size2 {
+        width: 100%;
+        height: 46px;
+    }
+
+    .m-text2 {
+        font-family: Montserrat-Regular;
+        font-size: 16px;
+        color: #333333;
+        text-transform: uppercase;
+    }
+
+    .flex-c-m {
+   
+        display: flex;
+        justify-content: center;
+     
+        align-items: center;
+    }
+
+    .trans-0-4 {
+  
+        transition: all 0.4s;
+    }
+
+    a {
+     
+        line-height: 1.7;
+
+        margin: 0px;
+
+    }
+
+    .checkalign {
+        position: absolute;
+        bottom: 11px;
+        left: 142px;
+        width: auto;
+        padding: 10px;
+    }
+
+    .sliderarrow {
+        font-size: 32px;
+        color: #e2e2e2;
+        position: absolute;
+        z-index: 10;
+        margin-top: 125px;
+        width: 100%;
+        left: 0;
+        display: none;
+    }
+</style>
+ 
+<section class="bg2">
+   
+    <!--<div class="container BannerImg">
+        <img style="width:100%;" src="../../img/shopping.jpeg" alt="Alternate Text" />
+    </div>-->
+   
+</section>
+
+
+
+<section class="section-content my-padding bg" ng-repeat="cat in searchcategories">
+    <div class="container">
+
+        <header class="section-heading heading-line" ng-if="cat.categories1.length>0">
+            <h4 class="title-section bg">  {{cat.categoryName}}</h4>
+        </header>
+        <div ng-show="Isloadingcat==true">
+
+
+            <div style="text-align:center;">
+                <img src="../img/ajax_loading.gif" width="100" />
+            </div>
+
+
+        </div>
+        <div class="sliderarrow" ng-if="cat.categories1.length>0">
+            <i class="fa fa-chevron-left"></i>
+            <i style="float:right" class="fa fa-chevron-right"></i>
+        </div>
+
+        <div class="row no-gutters">
+            <div class="owl-carousel owl-init category-slider">
+                <div class="item-slide" ng-repeat="subcat in cat.categories1">
+                    <figure class="card card-product" ng-click="GoToProductsWithCategoryID(subcat.id,subcat.categoryName)">
+
+                        <div class="img-wrap" style="cursor:pointer">
+                            <img class="card-img-top" src="{{GetcatBgImage(subcat.categoryImage)}}" alt="">
+
+                        </div>
+                        <figcaption class="info-wrap text-center">
+                            <h6 style="cursor:pointer" class="title text-truncate">{{subcat.categoryName}}</h6>
+
+                        </figcaption>
+                    </figure>
+                </div>
+
+            </div>
+
+        </div> <!-- row.// -->
+
+
+
+    </div> <!-- container .//  -->
+</section>
+
+
+
+
+
+
+
+
+
+
+<section class="section-content padding-y-sm bg">
+    <div class="container">
+
+        <header class="section-heading heading-line">
+            <h4 class="title-section bg">Our Featured Picks</h4>
+        </header>
+        <div ng-show="loadfeatured==false">
+            <div style="text-align:center;">
+                <img src="../img/ajax_loading.gif" width="100" />
+            </div>
+        </div>
+        <div class="sliderarrow">
+            <i class="fa fa-chevron-left"></i>
+            <i style="float:right" class="fa fa-chevron-right"></i>
+        </div>
+
+        <div class="row no-gutters">
+            <div class="owl-carousel owl-init products-slider">
+                <div class="item-slide" ng-repeat="x in pagedItems">
+                    <figure class="card card-product">
+                        <span class="badge-new"> {{x[5]|currency:"₹ "}} </span>
+                        <div class="img-wrap" style="cursor:pointer" ng-click="SetProduct(x)">
+                            <img class="card-img-top" src="{{GetProductImage(x[13])}}" alt="{{x[9]}}">
+
+                        </div>
+                        <figcaption class="info-wrap text-center">
+                            <h6 style="cursor:pointer" ng-click="SetProduct(x)" class="title text-truncate">{{x[9]}}</h6>
+                            <div class="action-wrap">
+                                <!--<a ng-click="AddToCartGlobal(x[4],x,'products-slider-')" id="btn_{{x[4]}}" class="active btn btn-sm btn-primary pull-right Add"><i id="spinid_{{x[4]}}" class="fa fa-shopping-cart"></i> </a>-->
+                                <div class="price-wrap h6">
+
+                                </div> <!-- price-wrap.// -->
+                            </div> <!-- action-wrap -->
+                        </figcaption>
+                    </figure>
+                </div>
+
+            </div>
+
+        </div> <!-- row.// -->
+
+
+        
+    </div> <!-- container .//  -->
+</section>
+
+
+<section class="section-content padding-y-sm bg">
+    <div class="container">
+
+        <header class="section-heading heading-line">
+            <h4 class="title-section bg">Top Rated Picks</h4>
+        </header>
+
+        <div ng-show="loadtop==false">
+            <div style="text-align:center;">
+                <img src="../img/ajax_loading.gif" width="100" />
+            </div>
+        </div>
+
+
+        <div class="sliderarrow">
+            <i class="fa fa-chevron-left"></i>
+            <i style="float:right" class="fa fa-chevron-right"></i>
+        </div>
+
+        <div class="row no-gutters">
+            <div class="owl-carousel owl-init topRated-slider">
+
+
+                <div class="item-slide" ng-repeat="x in TopRatedItems">
+                    <figure class="card card-product">
+                        <span class="badge-new"> {{x[5]|currency:"₹ "}} </span>
+                        <div class="img-wrap" style="cursor:pointer" ng-click="SetProduct(x)">
+                            <img class="card-img-top" src="{{GetProductImage(x[13])}}" alt="{{x[9]}}">
+
+                        </div>
+                        <figcaption class="info-wrap text-center">
+                            <h6 style="cursor:pointer" ng-click="SetProduct(x)" class="title text-truncate">{{x[9]}}</h6>
+                            <div class="action-wrap">
+                                <!--<a ng-click="AddToCartGlobal(x[4],x,'products-slider-')" id="btn_{{x[4]}}" class="active btn btn-sm btn-primary pull-right Add"><i id="spinid_{{x[4]}}" class="fa fa-shopping-cart"></i></a>-->
+
+                                <div class="price-wrap h6">
+
+                                </div> <!-- price-wrap.// -->
+                            </div> <!-- action-wrap -->
+                        </figcaption>
+                    </figure>
+                </div>
+            </div>
+        </div> <!-- row.// -->
+    </div> <!-- container .//  -->
+</section>
+
+
+<section class="section-content padding-y-sm bg" ng-if="MostSaledItems.length>0">
+    <div class="container">
+
+        <header class="section-heading heading-line">
+            <h4 class="title-section bg">Most Saled Picks</h4>
+        </header>
+
+        <div ng-show="loadmostsale==false">
+
+
+            <div style="text-align:center;">
+                <img src="../img/ajax_loading.gif" width="100" />
+            </div>
+
+
+        </div>
+        <div class="sliderarrow">
+            <i class="fa fa-chevron-left"></i>
+            <i style="float:right" class="fa fa-chevron-right"></i>
+        </div>
+        <div class="row no-gutters">
+            <div class="owl-carousel owl-init mostsaled-slider">
+                <div class="item-slide" ng-repeat="x in MostSaledItems">
+                    <figure class="card card-product">
+                        <span class="badge-new"> {{x[5]|currency:"₹ "}} </span>
+                        <div class="img-wrap" style="cursor:pointer" ng-click="SetProduct(x)">
+                            <img class="card-img-top" src="{{GetProductImage(x[13])}}" alt="{{x[9]}}">
+                        </div>
+                        <figcaption class="info-wrap text-center">
+                            <h6 style="cursor:pointer" ng-click="SetProduct(x)" class="title text-truncate">{{x[9]}}</h6>
+                            <div class="action-wrap">
+                                <!--<a ng-click="AddToCartGlobal(x[4],x,'products-slider-')" id="btn_{{x[4]}}" ng-disabled="true" class="active btn btn-sm btn-primary pull-right Add"><i id="spinid_{{x[4]}}" class="fa fa-shopping-cart"></i></a>-->
+                                <div class="price-wrap h6">
+
+                                </div> <!-- price-wrap.// -->
+                            </div> <!-- action-wrap -->
+                        </figcaption>
+                    </figure>
+                </div>
+
+            </div>
+
+        </div> <!-- row.// -->
+    </div> <!-- container .//  -->
+</section>
+
+
+<!--<section class="section-content padding-y-sm bg">
+
+    <div class="container">
+        <header class="section-heading heading-line">
+            <h4 class="title-section bg">Our Suppliers</h4>
+        </header>
+
+
+
+
+        <div class="customer-logos slider">
+
+            <div class="slide" ng-repeat="seller in Suppliers"><img src="{{GetSupplierImage(seller.logo)}}"></div>
+
+        </div>
+    </div>
+
+</section>-->
+

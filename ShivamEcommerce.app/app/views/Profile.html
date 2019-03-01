@@ -1,0 +1,107 @@
+﻿
+<style>
+
+    .font_bold{
+       
+        font-weight:bold;
+    }
+</style>
+<section class="section-content my-padding  bg">
+    <div class="container my-3">
+        <div class="row">
+
+            <div class="col-md-4 col-lg-3">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <div class="icontext">
+                            <div class="icon-wrap icon-sm border round"><i class="fa fa-user"></i></div>
+                        </div>
+                        <h5 class="bold mb-0">{{authentication.userName}}</h5>
+
+
+                    </div>
+
+                    <div class="list-group list-group-flush">
+                        <a href="#/Profile" class="list-group-item list-group-item-action active"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user mr-3"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg> Profile</a>
+                        <a href="#/orders" class="list-group-item list-group-item-action"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-bag mr-3"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg> Orders</a>
+                        <a href="#/WishList" class="list-group-item has-badge list-group-item-action"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart mr-3"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg> Wishlist</a>
+                        <!--<a href="account-address.html" class="list-group-item list-group-item-action"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-map mr-3"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon><line x1="8" y1="2" x2="8" y2="18"></line><line x1="16" y1="6" x2="16" y2="22"></line></svg> Address</a>-->
+                        <a href="" class="list-group-item list-group-item-action text-danger"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-log-out mr-3"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg> Logout</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col mt-3 mt-md-0">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="font_bold">My Profile</h3><hr>
+                        <form class="form-style-1 font_bold" name='form1' ng-submit="">
+                            <div class="form-row">
+                                <div class="form-group col-sm-6">
+                                    <label for="profileFirstName">First Name</label>
+                                    <input type="text" class="form-control" id="profileFirstName" ng-model="customerInfo.FirstName" required>
+                                </div>
+                                <div class="form-group col-sm-6">
+                                    <label for="profileLastName">Last Name</label>
+                                    <input type="text" class="form-control" id="profileLastName" ng-model="customerInfo.LastName" required>
+                                </div>
+                                <div class="form-group col-sm-6">
+                                    <label for="profileEmail">Email address</label>
+                                    <input type="email" class="form-control" id="profileEmail" ng-model="customerInfo.Email" required>
+                                </div>
+                                <div class="form-group col-sm-6">
+                                    <label for="profilePhone">Phone Number</label>
+                                    <input type="text" class="form-control" id="profilePhone" ng-model="customerInfo.Phone" required>
+                                </div>
+
+                                <div class="form-group col-12">
+                                    <button type="submit" ng-click="changeprofile()" ng-disabled=!form1.$valid class="btn btn-primary"><i class="fa fa-check" aria-hidden="true"></i> UPDATE PROFILE</button>
+                                </div>
+                            </div>
+                        </form>
+
+                        <hr />
+                        <form class="form-style-1 font_bold" name='form2' ng-submit="">
+                            <div class="form-row">
+                                <hr />
+                                <div class="form-group col-sm-6">
+                                    <label for="profileNewPassword">Old Password</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                                        </div>
+
+                                        <input class="form-control" name="OLDPassword" id="OLDPassword" placeholder="**********" ng-model="changepass.OldPassword" type="password" required>
+                                    </div>
+                                </div>
+                                <div class="form-group col-sm-6">
+                                    <label for="profileNewPassword">New Password</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                                        </div>
+                                        <input class="form-control" name="NewPassword" id="NewPassword" placeholder="***********" ng-model="changepass.NewPassword" type="password" required>
+                                    </div>
+                                </div>
+                                <div class="form-group col-sm-6">
+                                    <label for="profileConfirmPassword">Confirm Password</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                                        </div>
+                                        <input class="form-control" name="ConfirmPassword" id="ConfirmPassword" placeholder="***********" ng-model="changepass.ConfirmPassword" type="password" required>
+                                    </div>
+                                </div>
+                                <div class="form-group col-12">
+                                    <button type="submit" ng-click="changepPASSWORD()" ng-disabled=!form2.$valid class="btn btn-primary"><i class="fa fa-check" aria-hidden="true"></i> UPDATE PASSWORD</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    </section>
+

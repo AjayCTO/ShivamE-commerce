@@ -1,0 +1,1686 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="SHIVAM ITCS">
+    <title>ShivSaagar Online</title>
+
+    <link href="UIKit/css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <!--Datatable css-->
+    <!--<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" />-->
+    <!-- Font awesome 5 -->
+    <link rel=" stylesheet" href="https://d19m59y37dris4.cloudfront.net/hub/1-4-0/vendor/font-awesome/css/font-awesome.min.css">
+
+    <!-- plugin: owl carousel  -->
+    <link href="UIKit/plugins/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="UIKit/plugins/owlcarousel/assets/owl.theme.default.css" rel="stylesheet">
+    <link href="content/css/toastr.css" rel="stylesheet" />
+    <!-- custom style -->
+    <link href="UIKit/css/ui.css" rel="stylesheet" type="text/css" />
+    <link href="UIKit/css/responsive.css" rel="stylesheet" media="only screen and (max-width: 1200px)" />
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
+    <link href="css/smart_wizard.css" rel="stylesheet" />
+    <link href="css/smart_wizard_theme_dots.css" rel="stylesheet" type="text/css" />
+    <!-- jQuery -->
+    <!--<script src="js/jquery-3.2.1.min.js"></script>-->
+    <!-- Bootstrap4 files-->
+    <script src="UIKit/js/jquery-3.3.1.min.js"></script>
+    <script src="UIKit/js/bootstrap.bundle.min.js" type="text/javascript"></script>
+
+    <!--Datatable js-->
+    <script src="UIKit/plugins/owlcarousel/owl.carousel.min.js"></script>
+    <!--<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.18/datatables.min.js"></script>-->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
+    <script src="../../js/sweetalert.min.js"></script>
+
+    <!--<script src="js/jquery.smartWizard.js"></script>-->
+    <script src="js/jquery.smartWizard.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            // Step show event
+            $("#smartwizard").on("showStep", function (e, anchorObject, stepNumber, stepDirection, stepPosition) {
+                //alert("You are on step "+stepNumber+" now");
+                if (stepPosition === 'first') {
+                    $("#prev-btn").addClass('disabled');
+                } else if (stepPosition === 'final') {
+                    $("#next-btn").addClass('disabled');
+                } else {
+                    $("#prev-btn").removeClass('disabled');
+                    $("#next-btn").removeClass('disabled');
+                }
+            });
+
+            // Toolbar extra buttons
+
+
+
+            // Smart Wizard
+
+
+
+            // External Button Events
+            $("#reset-btn").on("click", function () {
+                // Reset wizard
+                $('#smartwizard').smartWizard("reset");
+                return true;
+            });
+
+            $("#prev-btn").on("click", function () {
+                // Navigate previous
+                debugger;
+                $('#smartwizard').smartWizard("prev");
+                return true;
+            });
+
+            $("#next-btn").on("click", function () {
+                // Navigate next
+                debugger;
+                $('#smartwizard').smartWizard("next");
+                return true;
+            });
+
+            $("#theme_selector").on("change", function () {
+                // Change theme
+                $('#smartwizard').smartWizard("theme", $(this).val());
+                return true;
+            });
+
+            // Set selected theme on page refresh
+            $("#theme_selector").change();
+        });
+    </script>
+
+
+    <script>
+        window.onscroll = function () { myFunction() };
+
+        var header = document.getElementById("myHeader");
+        var sticky = 200
+
+
+
+        function myFunction() {
+
+            if (window.pageYOffset > sticky) {
+                $("#myHeader").removeClass("bg2")
+
+                $("#myHeader").addClass("sticky")
+
+
+            } else {
+                $("#myHeader").addClass("bg2")
+                $("#myHeader").removeClass("sticky")
+
+
+            }
+        }
+
+        $(".section-content").scrollTop();
+
+        function showmobilemenu() {
+            debugger;
+            if ($(".wrap-side-menu").hasClass("show2")) {
+
+                $(".wrap-side-menu").removeClass("show2").addClass("hideM");
+                //$(".hamburger-box .fa").removeClass("fa-times-circle").addClass("fa-bars");
+
+
+
+
+            }
+
+            else {
+
+                $(".wrap-side-menu").removeClass("hideM").addClass("show2");
+
+                //$(".hamburger-box .fa").removeClass("fa-bars").addClass("fa-times-circle");
+            }
+
+
+        }
+
+
+
+
+
+    </script>
+
+
+
+    <!-- custom javascript -->
+    <link href="https://colorlib.com/etc/fashe/css/main.css" rel="stylesheet" />
+    <link href="css/Mystyle.css" rel="stylesheet" />
+    <link href="css/util.css" rel="stylesheet" />
+    <link href="css/main.css" rel="stylesheet" />
+
+
+
+    <style>
+
+
+        .modal-backdrop {
+
+            background-color:black;
+        }
+        
+        .show2 {
+            display: block !important;
+            animation: slide-down 0.8s;
+        }
+
+        .hideM {
+            display: none !important;
+            animation: slide-up 0.8s;
+        }
+
+
+        body {
+            padding-top: 0;
+        }
+
+        .sticky {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            animation: slide-down 0.5s;
+            background-color: #2c387e;
+        }
+
+            .sticky .header-icons {
+                display: block !important;
+            }
+
+
+        .topbar2 {
+            height: 50px;
+        }
+
+        .sticky a {
+            color: #fff !important;
+        }
+        .sticky .dropdown-menu a {
+            color: black !important;
+        }
+
+
+        input {
+            border: 1px solid #ced4da !important;
+        }
+
+        @keyframes slide-down {
+            0% {
+                opacity: 0.7;
+                transform: translateY(-100%);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slide-up {
+            0% {
+                opacity: 0.7;
+                transform: translateY(100%);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .logo2 img {
+            max-height: 45px;
+        }
+
+        .stickylogo {
+            height: 50px;
+            width: 50px;
+            float: initial;
+            position: absolute;
+            left: 24px;
+        }
+
+        .sticky .stickylogo {
+            display: block !important;
+        }
+
+        .sticky .icontext {
+            background-color: #fff;
+            border-radius: 100%;
+        }
+
+            .sticky .icontext i {
+                color: #888 !important;
+            }
+
+        .dropdown-submenu {
+            position: relative;
+        }
+
+            .dropdown-submenu > .dropdown-menu {
+                top: 0;
+                left: 100%;
+                margin-top: -6px;
+                margin-left: -1px;
+                -webkit-border-radius: 0 6px 6px 6px;
+                -moz-border-radius: 0 6px 6px;
+                border-radius: 0 6px 6px 6px;
+            }
+
+            .dropdown-submenu:hover > .dropdown-menu {
+                display: block;
+            }
+
+            .dropdown-submenu > a:after {
+                display: block;
+                content: " ";
+                float: right;
+                width: 0;
+                height: 0;
+                border-color: transparent;
+                border-style: solid;
+                border-width: 5px 0 5px 5px;
+                border-left-color: #ccc;
+                margin-top: 5px;
+                margin-right: -10px;
+            }
+
+            .dropdown-submenu:hover > a:after {
+                border-left-color: #fff;
+            }
+
+            .dropdown-submenu.pull-left {
+                float: none;
+            }
+
+                .dropdown-submenu.pull-left > .dropdown-menu {
+                    left: -100%;
+                    margin-left: 10px;
+                    -webkit-border-radius: 6px 0 6px 6px;
+                    -moz-border-radius: 6px 0 6px 6px;
+                    border-radius: 6px 0 6px 6px;
+                }
+
+        .logo-mobile img {
+            max-height: 40px;
+            margin-top: -8px;
+        }
+
+
+        .wrap-side-menu {
+            transition: height 0.5s ease;
+            -moz-transition: height 0.5s ease;
+            -ms-transition: height 0.5s ease;
+            -o-transition: height 0.5s ease;
+            -webkit-transition: height 0.5s ease;
+            position: fixed;
+            left: 0;
+            right: 0;
+            top: 110px;
+            z-index: 1000;
+        }
+
+        .wrap_header_mobile {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            min-height: 60px;
+            padding-bottom: 0;
+            background-color: #2c387e;
+        }
+
+            .wrap_header_mobile .widget-header {
+                background: #fff;
+                border-radius: 100%;
+            }
+
+
+            .wrap_header_mobile.searcharea {
+                position: fixed;
+                width: 100%;
+                top: 55px;
+                z-index: 1000;
+                padding-right: 15px;
+            }
+
+
+        .mobile-margin {
+            margin-top: 8px;
+        }
+
+        /*.item-menu-mobile {
+            background-color: #3f51b5;
+        }*/
+
+        .searcharea .form-control {
+            border-radius: 25px !important;
+            padding: 7px;
+            padding-left: 15px;
+        }
+
+
+        .searcharea .input-group-append {
+            margin-left: -1px;
+            position: absolute;
+            right: 17px;
+            background: #fff;
+            top: 2px;
+            z-index: 1000;
+        }
+
+            .searcharea .input-group-append span {
+                background: #fff;
+                box-shadow: none;
+                border: none;
+                color: #069;
+                font-size: 21px;
+            }
+
+        .bg-blue {
+            background-color: #2c387e;
+            color: #fff;
+        }
+
+        .noradius {
+            border-radius: 0 !important;
+        }
+
+        .btn-white {
+            background-color: #fff;
+            color: #2c387e;
+            border-color: #fff;
+        }
+
+        .list-group-item.active {
+            color: #fff !important;
+        }
+        .my-padding {
+            padding-top: 35px;
+            padding-bottom: 35px;
+        }
+    </style>
+    <style>
+
+        .breadcrumb-arrow {
+            height: 36px;
+            padding: 0;
+            line-height: 36px;
+            list-style: none;
+            background-image: linear-gradient(to right, #2c387e, #c5b9d2);
+        }
+
+            .breadcrumb-arrow li:first-child a {
+                border-radius: 4px 0 0 4px;
+                -webkit-border-radius: 4px 0 0 4px;
+                -moz-border-radius: 4px 0 0 4px;
+            }
+
+            .breadcrumb-arrow li, .breadcrumb-arrow li a, .breadcrumb-arrow li span {
+                display: inline-block;
+                vertical-align: top;
+               
+            }
+
+                .breadcrumb-arrow li:not(:first-child) {
+                    margin-left: -5px;
+                }
+
+                .breadcrumb-arrow li + li:before {
+                    padding: 0;
+                    content: "";
+                }
+
+                .breadcrumb-arrow li span {
+                    padding: 0 10px;
+                   
+                }
+
+                .breadcrumb-arrow li a, .breadcrumb-arrow li:not(:first-child) span {
+                    height: 36px;
+                    padding: 0 10px 0 25px;
+                    line-height: 36px;
+                }
+
+                .breadcrumb-arrow li:first-child a {
+                    padding: 0 10px;
+                }
+
+                .breadcrumb-arrow li a {
+                    position: relative;
+                    color: #fff;
+                    text-decoration: none;
+                    background-color: #2c387e;
+                    border: 1px solid #2c387e;
+                }
+
+                .breadcrumb-arrow li:first-child a {
+                    padding-left: 10px;
+                }
+
+                .breadcrumb-arrow li a:after, .breadcrumb-arrow li a:before {
+                    position: absolute;
+                    top: -1px;
+                    width: 0;
+                    height: 0;
+                    content: '';
+                    border-top: 18px solid transparent;
+                    border-bottom: 18px solid transparent;
+                }
+
+                .breadcrumb-arrow li a:before {
+                    right: -10px;
+                    z-index: 3;
+                    border-left-color: #2c387e;
+                    border-left-style: solid;
+                    border-left-width: 11px;
+                }
+
+                .breadcrumb-arrow li a:after {
+                    right: -11px;
+                    z-index: 2;
+                    border-left: 11px solid white;
+                }
+
+                .breadcrumb-arrow li a:focus, .breadcrumb-arrow li a:hover {
+                    background-color: #2c387e;
+                    border: 1px solid #2c387e;
+                }
+
+                    .breadcrumb-arrow li a:focus:before, .breadcrumb-arrow li a:hover:before {
+                        border-left-color: #2c387e;
+                    }
+
+                .breadcrumb-arrow li a:active {
+                    background-color: #2c387e;
+                    border: 1px solid #2c387e;
+                }
+
+                    .breadcrumb-arrow li a:active:after, .breadcrumb-arrow li a:active:before {
+                        border-left-color: #2c387e;
+                    }
+
+                .breadcrumb-arrow li span {
+                    color: #2c387e;
+                }
+    </style>
+    <style>
+
+        .mag {
+            width: 200px;
+            margin: 0 auto;
+            float: none;
+        }
+
+            .mag img {
+                max-width: 100%;
+            }
+
+
+
+        .magnify {
+            position: relative;
+            cursor: none;
+        }
+
+        .magnify-large {
+            position: absolute;
+            display: none;
+            width: 175px;
+            height: 175px;
+            -webkit-box-shadow: 0 0 0 7px rgba(255, 255, 255, 0.85), 0 0 7px 7px rgba(0, 0, 0, 0.25), inset 0 0 40px 2px rgba(0, 0, 0, 0.25);
+            -moz-box-shadow: 0 0 0 7px rgba(255, 255, 255, 0.85), 0 0 7px 7px rgba(0, 0, 0, 0.25), inset 0 0 40px 2px rgba(0, 0, 0, 0.25);
+            box-shadow: 0 0 0 7px rgba(255, 255, 255, 0.85), 0 0 7px 7px rgba(0, 0, 0, 0.25), inset 0 0 40px 2px rgba(0, 0, 0, 0.25);
+            -webkit-border-radius: 100%;
+            -moz-border-radius: 100%;
+            border-radius: 100%;
+        }
+    </style>
+    <style>
+        .sidenav2 {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 10000;
+            top: 0;
+            right: 0;
+            background-color: white;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+
+            .sidenav2 a {
+                padding: 8px 8px 8px 32px;
+                text-decoration: none;
+                font-size: 16px;
+                color: #292727;
+                display: block;
+                transition: 0.3s;
+            }
+
+                .sidenav2 a:hover {
+                    color: #f1f1f1;
+                }
+
+        .sidenav2 .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+
+        @media screen and (max-height: 450px) {
+            .sidenav2 {
+                padding-top: 15px;
+            }
+
+                .sidenav2 a {
+                    font-size: 18px;
+                }
+        }
+
+
+
+
+        .slick-slide {
+            margin: 0px 20px;
+        }
+
+            .slick-slide img {
+                width: 100%;
+            }
+
+        .slick-slider {
+            position: relative;
+            display: block;
+            box-sizing: border-box;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            -webkit-touch-callout: none;
+            -khtml-user-select: none;
+            -ms-touch-action: pan-y;
+            touch-action: pan-y;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .slick-list {
+            position: relative;
+            display: block;
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+        }
+
+            .slick-list:focus {
+                outline: none;
+            }
+
+            .slick-list.dragging {
+                cursor: pointer;
+                cursor: hand;
+            }
+
+        .slick-slider .slick-track,
+        .slick-slider .slick-list {
+            -webkit-transform: translate3d(0, 0, 0);
+            -moz-transform: translate3d(0, 0, 0);
+            -ms-transform: translate3d(0, 0, 0);
+            -o-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+        }
+
+        .slick-track {
+            position: relative;
+            top: 0;
+            left: 0;
+            display: block;
+        }
+
+            .slick-track:before,
+            .slick-track:after {
+                display: table;
+                content: '';
+            }
+
+            .slick-track:after {
+                clear: both;
+            }
+
+        .slick-loading .slick-track {
+            visibility: hidden;
+        }
+
+        .slick-slide {
+            display: none;
+            float: left;
+            height: 100%;
+            min-height: 1px;
+        }
+
+        [dir='rtl'] .slick-slide {
+            float: right;
+        }
+
+        .slick-slide img {
+            display: block;
+        }
+
+        .slick-slide.slick-loading img {
+            display: none;
+        }
+
+        .slick-slide.dragging img {
+            pointer-events: none;
+        }
+
+        .slick-initialized .slick-slide {
+            display: block;
+        }
+
+        .slick-loading .slick-slide {
+            visibility: hidden;
+        }
+
+        .slick-vertical .slick-slide {
+            display: block;
+            height: auto;
+            border: 1px solid transparent;
+        }
+
+        .slick-arrow.slick-hidden {
+            display: none;
+        }
+        #searchinput {
+            width: 200px;
+        }
+
+        .breadcrumb-item + .breadcrumb-item::before {
+            content: none;
+        }
+
+        #searchclear {
+            position: absolute;
+            right: 5px;
+            top: 0;
+            bottom: 0;
+            height: 14px;
+            margin: auto;
+            font-size: 14px;
+            cursor: pointer;
+            color: #ccc;
+        }
+    </style>
+  
+</head>
+<body class="animsition bg2" ng-app="AngularAuthApp" ng-cloak>
+    <!-- section-header.// -->
+
+    <header class="header2" ng-controller="indexController">
+        <!-- Header desktop -->
+        <div class="container container-menu-header-v2 p-t-26">
+            <div class="topbar2 bg2">
+                <!--<div class="topbar-social">
+                    <a href="#" class="topbar-social-item fa fa-facebook"></a>
+                    <a href="#" class="topbar-social-item fa fa-instagram"></a>
+                    <a href="#" class="topbar-social-item fa fa-pinterest-p"></a>
+                    <a href="#" class="topbar-social-item fa fa-snapchat-ghost"></a>
+                    <a href="#" class="topbar-social-item fa fa-youtube-play"></a>
+                </div>-->
+
+                <!-- Logo2 -->
+                <a href="#/home" class="topbar-social">
+                    <img src="img/logo.png" alt="IMG-LOGO">
+                </a>
+
+                <div class="topbar-child2">
+                    <div style="border-radius:100%" class="widget-header mr-3">
+                   
+                        <input ng-model="search" class="topsearch"  autocomplete="off" type="text" ng-enter="Goblesearch(search)" name="name" value="" />
+                        <span style="margin-right: 40px; display:none" id="searchclear" class="fa fa-close"></span>
+                        <span  class="fa fa-search"></span>
+                    </div>
+
+                    <!--<div class="btn-group">
+                        <input id="searchinput" type="search" class="form-control">
+                  
+                    </div>-->
+
+                    <a href="#/ShoppingCart" class="widget-header mr-3">
+
+                        <div class="icontext">
+
+
+                            <div class="icon-wrap"><div class="icon-wrap icon-sm border round"><i class="fa fa-shopping-cart"></i></div></div>
+                            <div class="text-wrap cartcounter">
+                                <div class="badge badge-pill badge-success" ng-hide="CartProductsCounter==0">{{CartProductsCounter}}</div>
+
+                            </div>
+                        </div>
+
+
+                    </a>
+                    <a class="widget-header mr-3" href="#/WishList" data-ng-hide="!authentication.isAuth">
+                        <div class="icontext">
+                            <div class="icon-wrap icon-sm border round"><i class="fa fa-heart"></i></div>
+                        </div>
+                        <span class="badge badge-pill badge-danger notify">{{CurrentWishList.length}}</span>
+
+                    </a>
+
+
+                    <a href="#/login" data-offset="20,10" data-ng-hide="authentication.isAuth">
+                        <div class="icontext">
+                            <div class="icon-wrap"><i class="icon-sm round border fa fa-user"></i></div>
+                            <div class="text-wrap">
+                                <small>Sign in | Join</small>
+                                <div>My account <!--<i class="fa fa-caret-down"></i>--> </div>
+                            </div>
+                        </div>
+                    </a>
+
+
+                    <ul class="nav navbar-nav" data-ng-hide="!authentication.isAuth">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" style="color:#3F51B5" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+                                <i class="fa fa-user"></i> &nbsp;{{authentication.userName}}
+
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="#/Profile"> Profile</a>
+                                <a class="dropdown-item" href="#/orders"> My Orders</a>
+                                <a class="dropdown-item" href="#/WishList"> Wishlist</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" data-ng-click="logOut()"><i class="fa fa-sign-out"></i> SignOut</a>
+                            </div>
+                        </li>
+                    </ul>
+                    <a data-toggle="dropdown" data-ng-hide="!authentication.isAuth" style="display:none;">
+                        <div class="icontext">
+                            <div class="icon-wrap"><i class="icon-sm round border fa fa-user"></i></div>
+                            <div class="text-wrap">
+                                <div style="color: #0871f1;">{{authentication.userName}} <i class="fa fa-caret-down"></i> </div>
+                            </div>
+                        </div>
+                    </a>
+
+
+                    <div class="dropdown-menu" id="dropdown">
+
+
+
+                        <article>
+                            <figure class="media">
+                                <div class="img-wrap"><i class="icon-sm round border fa fa-th"></i></div>
+
+                                <figcaption class="media-body">
+
+                                    <a href="#/orders" data-placement="top" title="My Orders">
+                                        My Orders
+                                    </a>
+
+                                </figcaption>
+
+
+
+                            </figure> <!-- media.// -->
+
+                            <figure class="media">
+                                <div class="img-wrap"><i class="icon-sm round border fa fa-heart"></i></div>
+                                <figcaption class="media-body">
+
+                                    <a href="#/WishList" data-placement="top" title="Wishlist">
+                                        Wishlist
+                                    </a>
+
+                                </figcaption>
+                            </figure> <!-- media.// -->
+
+                            <figure class="media">
+                                <div class="img-wrap"><i class="icon-sm round border fa fa-sign-out"></i></div>
+                                <figcaption class="media-body">
+
+                                    <a data-ng-click="logOut()" data-placement="top" title="SignOut">
+                                        SignOut
+                                    </a>
+
+                                </figcaption>
+                            </figure> <!-- media.// -->
+                        </article>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <div id="myHeader" class="wrap_header bg2">
+
+            <img style="display:none;" class="stickylogo" src="img/logo-colored.png" alt="Alternate Text" />
+
+            <!-- Menu -->
+            <div class="wrap_menu">
+                <nav class="menu" style="margin-left: -570px;">
+                    <ul class="main_menu" style="cursor: pointer;">
+                        <li>
+                            <a href="#/home"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
+                            <!--<ul class="sub_menu">
+                                <li><a href="index.html">Homepage V1</a></li>
+                                <li><a href="home-02.html">Homepage V2</a></li>
+                                <li><a href="home-03.html">Homepage V3</a></li>
+                            </ul>-->
+                        </li>
+
+                        <li>
+                            <a href="#/Product"><i class="fa fa-shopping-bag" aria-hidden="true"></i> Shop</a>
+                        </li>
+
+
+                        <li>
+                            <a data-toggle="dropdown" style="font-size: 19px; color: darkolivegreen;" class="nav-link categories"> Categories <i class="fa fa-angle-down"></i></a>
+
+                            <ul aria-labelledby="navbarDropdownMenuLink" class="dropdown-menu">
+                                <li ng-if="cat.categories1.length==0" ng-repeat="cat in searchcategories">
+                                    <a ng-click="GoToProductsWithCategoryID(cat.id,cat.categoryName)" class="dropdown-item">
+                                        {{cat.categoryName}}
+                                    </a>
+                                </li>
+
+                                <li class="dropdown-submenu" ng-repeat="cat in searchcategories" ng-if="cat.categories1.length>0">
+                                    <a id="navbarDropdownMenuLink{{$index}}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item">{{cat.categoryName}}</a>
+                                    <ul aria-labelledby="navbarDropdownMenuLink{{$index}}" class="dropdown-menu">
+                                        <li ng-if="subcat.categories1.length==0" ng-repeat="subcat in cat.categories1">
+                                            <a ng-click="GoToProductsWithCategoryID(subcat.id,subcat.categoryName)" class="dropdown-item">
+                                                {{subcat.categoryName}}
+                                            </a>
+                                        </li>
+                                        <li class="dropdown-submenu" ng-repeat="subcat in cat.categories1" ng-if="subcat.categories1.length>0">
+                                            <a class="dropdown-item">{{subcat.categoryName}}</a>
+                                            <ul aria-labelledby="navbarDropdownMenuLink{{$index}}" class="dropdown-menu">
+                                                <li ng-repeat="menisub in subcat.categories1">
+                                                    <a ng-click="GoToProductsWithCategoryID(menisub.id,menisub.categoryName)" class="dropdown-item">{{menisub.categoryName}}</a>
+                                                </li>
+
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+
+
+
+
+
+
+                        <li>
+                            <a href="about.html"><i class="fa fa-info-circle" aria-hidden="true"></i> About</a>
+                        </li>
+
+                        <li>
+                            <a href="#/Contact"><i class="fa fa-phone" aria-hidden="true"></i> Contact</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+            <!-- Header Icon -->
+            <div style="display:none;" class="header-icons">
+                <div style="border-radius:100%" class="widget-header mr-3">
+                    <input ng-model="search" class="topsearch" autocomplete="off" type="text" ng-enter="Goblesearch(search)" name="name" value="" />
+                </div>
+
+
+
+                <a href="#/ShoppingCart" class="widget-header mr-3">
+
+                    <div class="icontext">
+
+
+                        <div class="icon-wrap"><div class="icon-wrap icon-sm border round"><i class="fa fa-shopping-cart"></i></div></div>
+                        <div class="text-wrap cartcounter">
+                            <div class="badge badge-pill badge-success" ng-hide="CartProductsCounter==0">{{CartProductsCounter}}</div>
+
+                        </div>
+                    </div>
+
+
+                </a>
+            </div>
+        </div>
+        <div class="wrap_header_mobile ">
+            <!-- Logo moblie -->
+            <a style="color:#fff; font-size:14px;" href="index.html" class="logo-mobile">
+                <img style="" src="img/logo-colored.png" alt="IMG-LOGO">
+                <span class="logoName">SHIVSAAGAR</span>
+                <!--<img src="img/logo.png" alt="IMG-LOGO">-->
+            </a>
+
+            <!-- Button show menu -->
+            <div style="margin-top:-6px;" class="btn-show-menu">
+                <!-- Header Icon mobile -->
+                <div class="header-icons-mobile">
+
+
+
+
+                    <a href="#/ShoppingCart" class="widget-header mr-3">
+
+                        <div class="icontext">
+
+
+                            <div class="icon-wrap"><div class="icon-wrap icon-sm border round"><i class="fa fa-shopping-cart"></i></div></div>
+                            <div class="text-wrap cartcounter">
+                                <div class="badge badge-pill badge-success" ng-hide="CartProductsCounter==0">{{CartProductsCounter}}</div>
+
+                            </div>
+                        </div>
+
+
+                    </a>
+
+                    <a class="widget-header mr-3" href="#/WishList" data-ng-hide="!authentication.isAuth">
+                        <div class="icontext">
+                            <div class="icon-wrap icon-sm border round"><i class="fa fa-heart"></i></div>
+                        </div>
+                        <span class="badge badge-pill badge-danger notify">{{CurrentWishList.length}}</span>
+
+                    </a>
+
+
+                    <a class="widget-header mr-3" href="#/login" data-ng-show="!authentication.isAuth">
+                        <div class="icontext">
+                            <div class="icon-wrap icon-sm border round"><i class="fa fa-user"></i></div>
+                        </div>
+
+
+                    </a>
+                </div>
+
+                <div class="btn-show-menu-mobile hamburger hamburger--squeeze">
+                    <span class="hamburger-box">
+                        <span style="cursor:pointer" id="openmenu" onclick="openNav2()" class="hamburger-inner">
+                            <i style="font-size: 38px; margin-right: 18px; color: #fff;" class="fa fa-bars"></i>
+                        </span>
+                        <span id="closemenu" onclick="closeNav2()" style="display: none; cursor: pointer; " class="hamburger-inner">
+                            <i style="font-size: 38px; margin-right: 18px; color: #fff;" class="fa fa-bars"></i>
+                        </span>
+     
+                    </span>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="wrap_header_mobile searcharea">
+            <div class="input-group mb-3">
+
+                <input x-webkit-speech ng-model="search" type="text" class="form-control" placeholder="Find Product" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                <div class="input-group-append">
+
+                    <img style="position: absolute; width: 27px; right: 54px; top: 4px;" src="http://www.gstatic.com/images/branding/googlemic/2x/googlemic_color_24dp.png" alt="Alternate Text" />
+
+                    <span ng-click="Goblesearch(search)" class="input-group-text" id="basic-addon2"> <i class="fa fa-search"></i> </span>
+                </div>
+            </div>
+
+        </div>
+
+
+     
+
+
+
+
+
+        <div class="modal fade" id="myModalpop">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                    <div class="modal-header">
+                
+                        <button  type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+            
+                    <!-- Modal Header -->
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <ul class="main-menu">
+
+
+                            <li class="">
+                                <a href="#/home">Home</a>
+
+                            </li>
+
+                            <!--<li class="">
+                                <a data-toggle="collapse" data-target="#collapse22">By Categories <i class="fa fa-angle-down"></i></a>
+                           
+                                <ul aria-labelledby="navbarDropdownMenuLink" class="filter-content collapse" id="collapse22">
+                                    <li ng-if="cat.categories1.length==0" ng-repeat="cat in searchcategories">
+                                        <a ng-click="GoToProductsWithCategoryID(cat.id,cat.categoryName)" class="filter-content collapse">
+                                            {{cat.categoryName}}
+                                        </a>
+                                    </li>
+
+                                    <li class="dropdown-submenu" ng-repeat="cat in searchcategories" ng-if="cat.categories1.length>0">
+                                        <a id="navbarDropdownMenuLink{{$index}}" aria-haspopup="true" aria-expanded="false" data-toggle="collapse" data-target="#item-{{cat.id}}-{{index}}">{{cat.categoryName}}</a>
+                                        <ul aria-labelledby="navbarDropdownMenuLink{{$index}}" class="filter-content collapse" id="item-{{cat.id}}-{{index}}">
+                                            <li ng-repeat="subcat in cat.categories1"><a ng-click="GoToProductsWithCategoryID(subcat.id,subcat.categoryName)" class="dropdown-item">{{subcat.categoryName}}</a></li>
+
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>-->
+
+                            <li class="">
+                                <a href="#/Product">Shop</a>
+                            </li>
+
+
+                            <li data-ng-hide="!authentication.isAuth" class="">
+                                <a href="#/orders">My Orders</a>
+                            </li>
+
+                            <li data-ng-hide="!authentication.isAuth" class="">
+                                <a href="" data-ng-click="logOut()">Sign Out</a>
+                            </li>
+                        </ul>
+
+                        <!--<button type="button" class="btn btn-primary " style="width: 49%; background-color:#2c387e " data-dismiss="modal">Cancel</button>-->
+
+                    </div>
+
+                    <!-- Modal footer -->
+
+                </div>
+            </div>
+        </div>
+
+
+
+        <div id="mySidenav2" class="sidenav2">
+
+            <div class="row" style=" margin-right: 0px; margin-left: 0px; margin-bottom:8px">
+                <div class="col-10" style="margin-top:-40px">
+                    <img  src="img/logo-colored.png" style="margin-top:-8px;height:40px"alt="Alternate Text">
+                    <!--<div class="icon-wrap icon-sm border round"><i class="fa fa-user"></i></div><span data-ng-hide="authentication.isAuth"> hello.sign in</span><span data-ng-show="authentication.isAuth"> Hello {{authentication.userName}}</span>-->
+                </div>
+     
+                <div class="col-2 pull-right"  style="color: black ;margin-top:-54px">
+                    <button id="mainmodel" class="closebtn" onclick="closeNav2()">
+                        &times;
+
+                    </button>
+                </div>
+
+            </div>
+          <!--<hr/>-->
+            <!--<div class="row" style=" margin-right: 0px; margin-left: 0px;">
+                <div class="col-4">
+                    <button  class="btn btn-primary" style="width:85px">
+                        Account
+                    </button>
+                </div>
+                <div class="col-4">
+                    <button class="btn btn-primary" style="width:85px">
+                        Orders
+                    </button>
+                </div>
+                <div class="col-4">
+                    <button class="btn btn-primary" style="width:85px">
+                        List
+                    </button>
+                </div>
+            </div>-->
+        
+           
+            <ul class="main-menu">
+
+
+                <li class="">
+                    <a href="#/home">Home</a>
+
+                </li>
+
+                <li class="">
+                  
+                        <div style="" class="filter-content collapse show" id="collapse22">
+                            <div class="just-padding">
+                                <div class="list-group list-group-root well" ng-repeat="parentCategory in searchcategories">
+                                
+                                    <a class="list-group-item" data-target="#item-{{$index}}" style="border: none;" data-toggle="collapse">
+                                        <i class="icon-action fa fa-chevron-right" ng-hide="parentCategory.categories1.length==0"></i>
+                                        <span class="form-check-label">
+                                            {{parentCategory.categoryName }}
+                                        </span>
+                                    </a>
+                                    <div class="list-group collapse" id="item-{{$index}}">
+                                        <div class="form-group mb-1 list-group-item" ng-repeat="subcat in parentCategory.categories1" style=" padding-left: 19px">                                         
+                                            <a class="list-group-item" ng-click="GoToProductsWithCategoryID(subcat.id,subcat.categoryName)"  style="border: none;" >
+                                                <i class="icon-action fa fa-chevron-right" ng-hide="subcat.categories1.length==0"></i>
+                                                <span class="form-check-label">
+                                                    {{subcat.categoryName }}
+                                                </span>
+                                            </a>                                          
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div> <!-- collapse .// -->
+                    <!--</article>-->
+
+                    <!--<a data-toggle="collapse" data-target="#collapse22">By Categories <i class="fa fa-angle-down"></i></a>
+
+                    <ul aria-labelledby="navbarDropdownMenuLink" class="filter-content collapse" id="collapse22">
+                        <li ng-if="cat.categories1.length==0" ng-repeat="cat in searchcategories">
+                            <a ng-click="GoToProductsWithCategoryID(cat.id,cat.categoryName)" class="filter-content collapse">
+                                {{cat.categoryName}}
+                            </a>
+                        </li>
+
+                        <li class="dropdown-submenu" ng-repeat="cat in searchcategories" ng-if="cat.categories1.length>0">
+                            <a id="navbarDropdownMenuLink{{$index}}" aria-haspopup="true" aria-expanded="false" data-toggle="collapse" data-target="#item-{{cat.id}}-{{index}}">{{cat.categoryName}}</a>
+                            <ul aria-labelledby="navbarDropdownMenuLink{{$index}}" class="filter-content collapse" id="item-{{cat.id}}-{{index}}">
+                                <li ng-repeat="subcat in cat.categories1"><a ng-click="GoToProductsWithCategoryID(subcat.id,subcat.categoryName)" class="dropdown-item">{{subcat.categoryName}}</a></li>
+
+                            </ul>
+                        </li>
+                    </ul>-->
+                </li>
+
+                <li class="">
+                    <a href="#/Product">Shop</a>
+                </li>
+
+
+                <li data-ng-hide="!authentication.isAuth">
+                    <a href="#/orders">My Orders</a>
+                </li>
+
+                <li data-ng-hide="!authentication.isAuth" >
+                    <a href="" data-ng-click="logOut()">Sign Out</a>
+                </li>
+            </ul>
+        </div>
+        
+        
+        
+        
+        
+        
+        <!-- Menu Mobile -->
+        <!--<div class="wrap-side-menu" >
+            <nav class="side-menu">
+                <a href="#/Profile"> <h4 style=" background: #3f51b5; color: #fff; padding: 12px; font-size: 17px; padding-top:20px;" data-ng-hide="!authentication.isAuth"> <i class=""></i> Welcome {{authentication.userName}}</h4></a>
+                <ul class="main-menu">
+
+
+                    <li class="item-menu-mobile">
+                        <a href="#/home">Home</a>
+
+                    </li>
+
+                    <li class="item-menu-mobile">
+                        <a data-toggle="dropdown"> Categories <i class="fa fa-angle-down"></i></a>
+
+                        <ul aria-labelledby="navbarDropdownMenuLink" class="dropdown-menu">
+                            <li ng-if="cat.categories1.length==0" ng-repeat="cat in searchcategories">
+                                <a ng-click="GoToProductsWithCategoryID(cat.id,cat.categoryName)" class="dropdown-item">
+                                    {{cat.categoryName}}
+                                </a>
+                            </li>
+
+                            <li class="dropdown-submenu" ng-repeat="cat in searchcategories" ng-if="cat.categories1.length>0">
+                                <a id="navbarDropdownMenuLink{{$index}}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item">{{cat.categoryName}}</a>
+                                <ul aria-labelledby="navbarDropdownMenuLink{{$index}}" class="dropdown-menu">
+                                    <li ng-repeat="subcat in cat.categories1"><a ng-click="GoToProductsWithCategoryID(subcat.id,subcat.categoryName)" class="dropdown-item">{{subcat.categoryName}}</a></li>
+
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="item-menu-mobile">
+                        <a href="#/Product">Shop</a>
+                    </li>
+
+
+                    <li data-ng-hide="!authentication.isAuth" class="item-menu-mobile">
+                        <a href="#/orders">My Orders</a>
+                    </li>
+
+                    <li data-ng-hide="!authentication.isAuth" class="item-menu-mobile">
+                        <a href="" data-ng-click="logOut()">Sign Out</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>-->
+
+    </header>
+
+
+    <div class="mobile-margin visible-xs"></div>
+
+    <!-- ========================= SECTION CONTENT ========================= -->
+    <route-loading-indicator></route-loading-indicator>
+    <section class="section-content" ng-if="!isRouteLoading" data-ng-view="" style="margin-top: -18px;"></section>
+    <!-- ========================= SECTION CONTENT END// ========================= -->
+    <!-- ========================= FOOTER ========================= -->
+
+
+ 
+
+
+
+    <footer ng-if="!isRouteLoading" class="bg6 p-t-45 p-b-43 p-l-45 p-r-45">
+        <div class="flex-w">
+            <div class="w-size6 p-t-30 p-l-15 p-r-15 respon3">
+
+
+                <div>
+                    <h2>Shivsagar Online</h2>
+                    <p>You don't have to wait for the weekends to shop as you can shop online on your way back home after work.</p>
+
+                    <div class="flex-m p-t-30">
+                        <a href="#" class="fs-18 color1 p-r-20 fa fa-facebook"></a>
+                        <a href="#" class="fs-18 color1 p-r-20 fa fa-instagram"></a>
+                        <a href="#" class="fs-18 color1 p-r-20 fa fa-pinterest-p"></a>
+                        <a href="#" class="fs-18 color1 p-r-20 fa fa-snapchat-ghost"></a>
+                        <a href="#" class="fs-18 color1 p-r-20 fa fa-youtube-play"></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="w-size7 p-t-30 p-l-15 p-r-15 respon4 hidden-m">
+                <h4 class="s-text12 p-b-30">
+                    Categories
+                </h4>
+
+                <ul>
+                    <li class="p-b-9">
+                        <a href="#" class="s-text7">
+                            Men
+                        </a>
+                    </li>
+
+                    <li class="p-b-9">
+                        <a href="#" class="s-text7">
+                            Women
+                        </a>
+                    </li>
+
+                    <li class="p-b-9">
+                        <a href="#" class="s-text7">
+                            Dresses
+                        </a>
+                    </li>
+
+                    <li class="p-b-9">
+                        <a href="#" class="s-text7">
+                            Sunglasses
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="w-size7 p-t-30 p-l-15 p-r-15 respon4 hidden-m">
+                <h4 class="s-text12 p-b-30">
+                    Links
+                </h4>
+
+                <ul>
+                    <li class="p-b-9">
+                        <a href="#" class="s-text7">
+                            Search
+                        </a>
+                    </li>
+
+                    <li class="p-b-9">
+                        <a href="#" class="s-text7">
+                            About Us
+                        </a>
+                    </li>
+
+                    <li class="p-b-9">
+                        <a href="#" class="s-text7">
+                            Contact Us
+                        </a>
+                    </li>
+
+                    <li class="p-b-9">
+                        <a href="#" class="s-text7">
+                            Returns
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="w-size7 p-t-30 p-l-15 p-r-15 respon4 hidden-m">
+                <h4 class="s-text12 p-b-30">
+                    Help
+                </h4>
+
+                <ul>
+                    <li class="p-b-9">
+                        <a href="#" class="s-text7">
+                            Track Order
+                        </a>
+                    </li>
+
+                    <li class="p-b-9">
+                        <a href="#" class="s-text7">
+                            Returns
+                        </a>
+                    </li>
+
+                    <li class="p-b-9">
+                        <a href="#" class="s-text7">
+                            Shipping
+                        </a>
+                    </li>
+
+                    <li class="p-b-9">
+                        <a href="#" class="s-text7">
+                            FAQs
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="w-size8 p-t-30 p-l-15 p-r-15 respon3 hidden-m">
+                <h4 class="s-text12 p-b-30">
+                    QUICK SEARCH
+                </h4>
+
+                <form>
+                    <div class="w-size9">
+
+                        <i style="position: absolute; color: #c7c7c7; margin-top: 12px; margin-le t: 17=x;" class="fa >a-search"></i>
+
+                        <input style="border-radius: 20px; padding: 8px; padding-left:40px;" ng-model="search" placeholder="Find Your Need !!" class="form-control" autocomplete="off" type="text" name="name" value="">
+
+
+                    </div>
+
+                    <div class="w-size2 p-t-20">
+                        <!-- Button -->
+                        <button ng-click="Goblesearch(search)" style="background: #2c387e; color:#fff" class="flex-c-m size2 bg4 bo-rad-23 hov1 m-text3 trans-0-4">
+                            Find Me !!
+                        </button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+
+
+    </footer>
+    <div class="t-center" ng-if="!isRouteLoading" style="display:none"> 
+
+
+        <div style="background:#ccc" class="t-center s-text8 p-t-20 p-b-20">
+            Copyright © 2019 <a href="#"> Shivam ITCS </a> ALL Right Reserved
+        </div>
+    </div>
+    <footer class="main-footer" style="display:none;">
+        <!-- Service Block-->
+        <div class="services-block">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 d-flex justify-content-center justify-content-lg-start">
+                        <div class="item d-flex align-items-center">
+                            <div class="icon"><i class="fa fa-truck"></i></div>
+                            <div class="text">
+                                <h6 class="no-margin text-uppercase">Free shipping &amp; return</h6><span>Free Shipping over $300</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 d-flex justify-content-center">
+                        <div class="item d-flex align-items-center">
+                            <div class="icon"><i class="fa fa-money"></i></div>
+                            <div class="text">
+                                <h6 class="no-margin text-uppercase">Money back guarantee</h6><span>30 Days Money Back Guarantee</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 d-flex justify-content-center">
+                        <div class="item d-flex align-items-center">
+                            <div class="icon"><i class="fa fa-headphones"></i></div>
+                            <div class="text">
+                                <h6 class="no-margin text-uppercase"> +91.295.323.2033</h6><span>24/7 Available Support</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Main Block -->
+        <div class="main-block">
+            <div class="container">
+                <div class="row">
+
+                    <div class=" col-lg-4">
+                        <h2>Shivsagar Online</h2>
+                        <p>You don't have to wait for the weekends to shop as you can shop online on your way back home after work.</p>
+                        <ul class="social-menu list-inline">
+                            <li class="list-inline-item"><a href="index.html#" target="_blank" title="twitter"><i class="fa fa-twitter"></i></a></li>
+                            <li class="list-inline-item"><a href="index.html#" target="_blank" title="facebook"><i class="fa fa-facebook"></i></a></li>
+                            <li class="list-inline-item"><a href="index.html#" target="_blank" title="instagram"><i class="fa fa-instagram"></i></a></li>
+                            <li class="list-inline-item"><a href="index.html#" target="_blank" title="pinterest"><i class="fa fa-pinterest"></i></a></li>
+                            <li class="list-inline-item"><a href="index.html#" target="_blank" title="vimeo"><i class="fa fa-vimeo"></i></a></li>
+                        </ul>
+                    </div>
+
+                    <div class="site-links col-lg-2 col-md-6">
+                        <h5 class="text-uppercase">Company</h5>
+                        <ul class="list-unstyled">
+                            <li> <a href="#/login">Login</a></li>
+                            <li> <a href="#/signup">Register</a></li>
+                        </ul>
+                    </div>
+                    <div class="newsletter col-lg-4">
+                        <h5 class="text-uppercase">Daily Offers & Discounts</h5>
+                        <p>Shivsagar Online provide latest products offers and discounts on product to you.</p>
+                        <form action="index.html#" id="newsletter-form">
+                            <div class="form-group">
+                                <input type="email" name="subscribermail" placeholder="Your Email Address">
+                                <button type="submit"> <i class="fa fa-paper-plane"></i></button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copyrights" style="display:none;">
+            <div class="container">
+                <div class="row d-flex align-items-center">
+                    <div class="text col-md-6">
+                        <p>&COPY;<a href="www.shivamitconsultancy.com" target="_blank">Shivamitconsultancy</a> All rights reserved.</p>
+                    </div>
+                    <div class="payment col-md-6 clearfix">
+                        <ul class="payment-list list-inline-item pull-right">
+                            <li class="list-inline-item">
+                                <!--<img style="width:400px;height:70px" src="img/paypal.png" alt="...">-->
+                            </li>
+                            <!--<li class="list-inline-item"><img src="img/mastercard.svg" alt="..."></li>
+                        <li class="list-inline-item"><img src="img/paypal.svg" alt="..."></li>
+                        <li class="list-inline-item"><img src="img/western-union.svg" alt="..."></li>-->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <footer class="section-footer bg-secondary" style="display:none;">
+        <div class="container">
+            <section class="footer-top padding-top">
+                <div class="row">
+                    <aside class="col-lg-3 col-sm-4 white">
+                        <h5 class="title">Customer Services</h5>
+                        <ul class="list-unstyled">
+                            <li> <a href="#">Help center</a></li>
+                            <li> <a href="#">Money refund</a></li>
+                            <li> <a href="#">Terms and Policy</a></li>
+                            <li> <a href="#">Open dispute</a></li>
+                        </ul>
+                    </aside>
+                    <aside class="col-lg-3 col-sm-4 white">
+                        <h5 class="title">My Account</h5>
+                        <ul class="list-unstyled">
+                            <li> <a href="#"> User Login </a></li>
+                            <li> <a href="#"> User register </a></li>
+                            <li> <a href="#"> Account Setting </a></li>
+                            <li> <a href="#"> My Orders </a></li>
+                            <li> <a href="#"> My Wishlist </a></li>
+                        </ul>
+                    </aside>
+                    <!--<aside class="col-lg-3 col-sm-4  white">
+                        <h5 class="title">About</h5>
+                        <ul class="list-unstyled">
+                            <li> <a href="#"> Our history </a></li>
+                            <li> <a href="#"> How to buy </a></li>
+                            <li> <a href="#"> Delivery and payment </a></li>
+                            <li> <a href="#"> Advertice </a></li>
+                            <li> <a href="#"> Partnership </a></li>
+                        </ul>
+                    </aside>-->
+                    <aside class="col-lg-3 col-sm-4 ">
+                        <article class="white">
+                            <h5 class="title">Contacts</h5>
+                            <p>
+                                <strong>Phone: </strong> +123456789 <br>
+                                <strong>Fax:</strong> +123456789
+                            </p>
+                            <div class="btn-group white">
+                                <a class="btn btn-facebook" title="Facebook" target="_blank" href="#"><i class="fa fa-facebook-f  fa-fw"></i></a>
+                                <a class="btn btn-instagram" title="Instagram" target="_blank" href="#"><i class="fa fa-instagram  fa-fw"></i></a>
+                                <a class="btn btn-youtube" title="Youtube" target="_blank" href="#"><i class="fa fa-youtube  fa-fw"></i></a>
+                                <a class="btn btn-twitter" title="Twitter" target="_blank" href="#"><i class="fa fa-twitter  fa-fw"></i></a>
+                            </div>
+                        </article>
+                    </aside>
+                </div> <!-- row.// -->
+                <br>
+            </section>
+            <section class="footer-bottom row border-top-white" style="display:none">
+                <div class="col-sm-6">
+                    <p class="text-white-50"> Made  <br>  by SHIVAM ITCS</p>
+                </div>
+                <div class="col-sm-6">
+                    <p class="text-md-right text-white-50">
+                        Copyright &copy  <br>
+                        <a href="http://shivamitconsultancy.com" class="text-white-50">SHIVAM ITCS</a>
+                    </p>
+                </div>
+            </section> <!-- //footer-top -->
+        </div><!-- //container -->
+    </footer>
+    <!-- ========================= FOOTER END // ========================= -->
+    
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY&callback=myMap"></script>
+    <!--Custom Js-->
+
+
+    <script src="js/Myscript.js"></script>
+    <!--<script>
+        $(doucment).ready(function () {
+            var searchtexted = $(".topsearch").val();
+
+            if (searchtexted != '') {
+                debugger;
+                $("#searchclear").css("display", "block");
+            }
+        })
+    </script>-->
+    <script>
+
+        
+        $(".section-content").click(function () {
+            debugger;
+            $("#mainmodel").trigger("click");
+        })
+
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "340px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+        function openNav2() {
+            debugger;
+            //$("#myModalpop").modal("show");
+            $("#openmenu").css("display", 'none');
+
+            $("#closemenu").css("display", 'block');
+            document.getElementById("mySidenav2").style.width = "340px";
+        }
+
+        function closeNav2() {
+
+            //$("#myModalpop").modal("hide");
+            $("#openmenu").css("display", 'block');
+
+            $("#closemenu").css("display", 'none');
+            document.getElementById("mySidenav2").style.width = "0";
+        }
+
+       
+
+        $("#searchclear").click(function () {
+            $(".topsearch").val('');
+        });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.js"></script>
+    <!-- Angularjs libraries -->
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-route.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-utils/0.1.1/angular-ui-utils.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.1/angular-sanitize.min.js"></script>
+
+    <script src="scripts/angular-local-storage.min.js"></script>
+    <script src="scripts/loading-bar.min.js"></script>
+    <script src="scripts/jquery.animate_from_to-1.0.js"></script>
+    <script src="scripts/toastr.js"></script>
+    <script src="scripts/bootbox.min.js"></script>
+    <!-- Load app main script -->
+    <script src="app/appNew.js?v=2"></script>
+
+    <!-- Load services -->
+    <script src="app/services/authInterceptorService.js?v=2"></script>
+    <script src="app/services/authService.js?v=2"></script>
+    <script src="app/services/ordersService.js?v=2"></script>
+    <script src="app/services/tokensManagerService.js?v=2"></script>
+    <!-- Load controllers -->
+    <script src="app/controllers/indexControllernew.js?v=2"></script>
+    <script src="app/controllers/homeControllernew.js?v=2"></script>
+    <script src="app/controllers/loginControllerNew.js?v=2"></script>
+    <script src="app/controllers/signupController.js?v=2"></script>
+    <script src="app/controllers/ordersController.js?v=2"></script>
+    <script src="app/controllers/refreshController.js?v=2"></script>
+    <script src="app/controllers/tokensManagerController.js?v=2"></script>
+    <script src="app/controllers/productControllerNew.js"></script>
+    <script src="app/controllers/shoppingCartControllerNew.js"></script>
+    <script src="app/controllers/checkOutControllerNew.js"></script>
+    <script src="app/controllers/ProductDetailControllerNew.js"></script>
+    <script src="app/controllers/OrderItemBillingController.js"></script>
+    <script src="app/controllers/WishListController1.js"></script>
+    <script src="app/controllers/contactController.js"></script>
+    <script src="app/controllers/categoryController.js"></script>
+    <script src="app/controllers/profileController.js"></script>
+    <script src="app/controllers/OrderDetails.js"></script>
+</body>
+</html>

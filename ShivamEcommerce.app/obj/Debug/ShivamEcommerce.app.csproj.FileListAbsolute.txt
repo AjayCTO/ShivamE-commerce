@@ -1,0 +1,6 @@
+C:\Users\shivam 04\Desktop\28Sept - Copy\ShivSagarOnline\ShivamEcommerce.app\bin\ShivamEcommerce.app.dll.config
+C:\Users\shivam 04\Desktop\28Sept - Copy\ShivSagarOnline\ShivamEcommerce.app\bin\ShivamEcommerce.app.dll
+C:\Users\shivam 04\Desktop\28Sept - Copy\ShivSagarOnline\ShivamEcommerce.app\bin\ShivamEcommerce.app.pdb
+C:\Users\shivam 04\Desktop\28Sept - Copy\ShivSagarOnline\ShivamEcommerce.app\obj\Debug\ShivamEcommerce.app.dll
+C:\Users\shivam 04\Desktop\28Sept - Copy\ShivSagarOnline\ShivamEcommerce.app\obj\Debug\ShivamEcommerce.app.pdb
+C:\Users\shivam 04\Desktop\28Sept - Copy\ShivSagarOnline\ShivamEcommerce.app\obj\Debug\ShivamEcommerce.app.csprojResolveAssemblyReference.cache

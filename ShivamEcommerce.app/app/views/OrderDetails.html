@@ -1,0 +1,145 @@
+﻿
+
+
+<section  style="background-color: #4e6c90; border: 1px solid white; padding-top: 15px; padding-bottom: 10px; ">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12" style="color:white; font-size:14px">
+                <i class="fa fa-map-marker" aria-hidden="true"></i> Deliver to {{localorderitem.ordShippingaddress[0].name}}-{{localorderitem.ordShippingaddress[0].city}} {{localorderitem.ordShippingaddress[0].pincode}}
+            </div>
+        </div>
+    </div>
+</section>
+<section id="productdetailscroll" class="hero hero-page gray-bg padding-small">
+    <div class="container">
+        <div class="row d-flex">
+            <div class="col-lg-12">
+                <ul class="breadcrumb justify-content-lg-end">
+                    <li class="breadcrumb-item"><a href="#/orders"><i class="fa fa-angle-left"></i>  <span style="font-weight:bold">Your orders</span></a></li>
+
+                </ul>
+            </div>
+       
+        </div>
+    </div>
+</section>
+<section class="section-content bg padding-y">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4" style="margin-bottom:15px">
+                <h5 style="font-weight:bold">View Order Details</h5>
+                <div class="card">
+                    <div class="card-body">
+
+                        <ul class="">                      
+                            <li class=""><strong>Order Date</strong><span class="pull-right">{{localorderitem.orderdate}}</span></li>
+                            <li class=""><strong>Order #</strong><span class="pull-right">{{localorderitem.orderNumber}}</span></li>
+                            <li class=" "><strong>Order total</strong><span class="pull-right">{{localorderitem.total|currency:"₹ "}} ({{orderitems.length}} item)</span></li>
+                            <li ng-show="localorderitem.orderstatus=='Placed'"><span><a href="" style="background-color: #2c387e" class="btn btn-primary btn-sm pull-right" ng-click="Cancleorderitem(localorderitem.id,localorderitem.orderNumber)">Order Cancel</a>  </span></li>
+                        </ul>
+                  
+                    </div>
+                    <div ng-show="localorderitem.orderstatus!='Cancalled'" class="card-footer">
+                        <a href="#/Billing">
+                            <strong>View Order Summary</strong>
+                            <span class="pull-right"><i class="fa fa-chevron-right"></i></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8" style="margin-bottom:15px">
+                <h5 style="font-weight:bold">Shipment Details</h5>
+                <div class="card">
+                    <div class="card-header">
+                        Free Delivery on eligible orders
+                    </div>
+                    <div class="card-body">
+                        <strong style="color:brown">{{localorderitem.orderstatus}}</strong>
+                        <span ng-show="localorderitem.orderstatus!='Cancalled'"> Delivery Estimate:</span>
+                        <span ng-show="localorderitem.orderstatus!='Cancalled'" style="color:green">{{localorderitem.shippingDate}}</span>
+                        <div class="row" ng-repeat="item in orderitems">
+                            <div class="col-md-1 col-2">
+                                <strong>{{$index+1}}</strong>
+                            </div>
+                            <div class="col-md-8 col-6">
+                                <ul>
+                                    <li><strong>{{item.productName|limitTo:50}}</strong></li>
+                                    <li style="font-size:13px"><span>Qty:{{item.quantity}}</span></li>
+                                    <li style="font-size:13px"><span>Sold By: {{item.soldBy}}</span></li>
+
+
+                                </ul>
+                            </div>
+                            <div class="col-md-3 col-4">
+                                <span class="pull-right">{{item.unitofprice*item.quantity|currency:"₹ "}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                     <strong>Track shippment</strong> 
+                        <span class="pull-right"><i class="fa fa-chevron-right"></i></span>  
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4" style="margin-bottom:15px">
+                <h5 style="font-weight:bold">Payment information</h5>
+                <div class="card">
+                    <div class="card-header">
+                       <strong>Payment Method</strong> 
+                    </div>
+                    <div class="card-body">
+                        <strong> {{Customerdetails.address.addressType}} Address</strong>
+                            <ul class="">
+                                <li class=""><span> {{Customerdetails.address.name}}</span></li>
+                                <li class=""><span> {{Customerdetails.address.address}}</span></li>
+                                <li class=""><span> {{Customerdetails.address.city}}</span>-<span> {{Customerdetails.address.pincode}}</span></li>
+                                <li class=" "><span> {{Customerdetails.address.district}}</span></li>
+                                <li class=" "><span> {{Customerdetails.address.state}}</span></li>
+                                <li class=" "><strong>Mob:- </strong><span> {{Customerdetails.address.phone}}</span></li>
+                            </ul>
+
+</div>
+
+                </div>
+            </div>
+            <div class="col-md-4" style="margin-bottom:15px">
+                <h5 style="font-weight:bold">Shipping Address</h5>
+                <div class="card">
+
+                    <div class="card-body">
+
+                        <ul class="">
+                            <li class=""><strong>  {{localorderitem.ordShippingaddress[0].name}}</strong></li>
+                            <li class=""><span> {{localorderitem.ordShippingaddress[0].address}}</span></li>
+                            <li class=""><span> {{localorderitem.ordShippingaddress[0].city}} -</span><span> {{localorderitem.ordShippingaddress[0].pincode}}</span></li>
+                            <li class=" "><span> {{localorderitem.ordShippingaddress[0].district}}</span></li>
+                            <li class=" "><span> {{localorderitem.ordShippingaddress[0].state}}</span></li>
+                            <li class=" "><strong>Mob:- </strong><span> {{localorderitem.ordShippingaddress[0].phone}}</span></li>
+                        </ul>
+
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-md-4" style="margin-bottom:15px">
+                <h5 style="font-weight:bold">Order Summary</h5>
+                <div class="card">
+
+                    <div class="card-body">
+
+                        <ul class="">
+                            <li class=""><span>Items:</span><span class="pull-right">{{localorderitem.total|currency:"₹ "}}</span></li>
+                            <li class=""><span>Postage & Packing:</span><span class="pull-right">-</span></li>
+                            <li class=""><span>Total before Tax:</span><span class="pull-right">-</span></li>
+                            <li class=""><span>Tax:</span><span class="pull-right">-</span>-</li>
+                            <li class=""><span>Delivery:</span><span class="pull-right">{{localorderitem.shippingCharges|currency:"₹ "}}</span>-</li>
+                            <li class=""><strong>Order Total:</strong><strong class="pull-right" style="color:red">{{localorderitem.shippingCharges+localorderitem.total|currency:"₹ "}}</strong></li>
+                        </ul>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

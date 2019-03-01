@@ -1,0 +1,125 @@
+button {
+    outline: none !important;
+    border: none;
+    background: transparent;
+}
+.input2 {
+    outline: none;
+    border: none !important;
+}
+
+.rs3-select2 .select2-container .select2-selection--single {
+    height: 45px;
+}
+.rs2-select2 .select2-container .select2-selection--single {
+    background-color: white;
+    height: 50px;
+}
+.select2-container .select2-selection--single {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    border: none;
+    height: 20px;
+    outline: none;
+    position: relative;
+}
+.select2-container--default .select2-selection--single {
+    background-color: #fff;
+    border: 1px solid #aaa;
+    border-radius: 4px;
+}
+.select2-container .select2-selection--single {
+    box-sizing: border-box;
+    cursor: pointer;
+    display: block;
+    height: 28px;
+    user-select: none;
+    -webkit-user-select: none;
+}
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+/*[ Slick3 ]
+///////////////////////////////////////////////////////////
+*/
+
+@media (max-width: 350px) 
+{
+    .logoName{
+        display:none;
+    }
+  
+}
+
+@media (max-width: 600px) 
+{
+    .BannerImg{
+       margin-top:17px
+    }
+  
+}
+
+ 
+.wrap-slick3-dots {
+  width: 14.5%;
+}
+
+.slick3 {
+  width: 80.64%;
+}
+
+.slick3-dots li {
+  display: block;
+  position: relative;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.slick3-dots li img {
+  width: 100%;
+}
+
+.slick3-dot-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  cursor: pointer;
+  border: 3px solid transparent;
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+.slick3-dot-overlay:hover {
+  border: 3px solid #888888;
+}
+
+.slick3-dots .slick-active .slick3-dot-overlay {
+  border: 3px solid #888888;
+}
+
+
+
+
+/*[ Dropdown content ]
+///////////////////////////////////////////////////////////
+*/
+.show-dropdown-content .down-mark {
+  display: block;
+}
+
+.show-dropdown-content .up-mark {
+  display: none;
+}
+
