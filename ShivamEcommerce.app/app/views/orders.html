@@ -18,8 +18,8 @@
 </section>-->
 
 
-<section class="section-content bg padding-y">
-    <div class="container">        
+<section class="section-content bg my-padding ">
+    <div class="container">
         <div class="row">
 
             <div class="col-md-4 col-lg-3">
@@ -29,7 +29,7 @@
                             <div class="icon-wrap icon-sm border round"><i class="fa fa-user"></i></div>
                         </div>
                         <h5 class="bold mb-0">{{authentication.userName}}</h5>
-                     
+
 
                     </div>
 
@@ -44,101 +44,100 @@
             </div>
 
             <div class="col-md-8">
-          
-                        <h3>My Orders</h3><hr>
-                        <div style="overflow-x:auto;">
-                            <table class="table table-hover" data-addclass-on-xs="table-sm">
-                                <thead class="thead-light">
-                                    <tr>
-                                        <th scope="col">Order No.</th>
-                                        <th scope="col">Date</th>
-                                        <th scope="col" style="min-width:120px">Total</th>
-                                        <th scope="col" class="text-center">Status</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr style="cursor:pointer" ng-repeat="item in CustomerOrders.data| orderBy:'-id'" ng-click="getorderitem(CustomerOrders.customerdetails,item)">
-                                        <td><a href="javascript:void(0)">{{item.orderNumber}}</a></td>
-                                        <td>{{item.orderdate| date:"dd.MM.YYYY"}}</td>
-                                        <td style="min-width:120px">{{item.total|currency:"₹ "}}</td>
-                                        <td class="text-center">
-                                            <span class="badge badge-warning rounded" ng-if="item.orderstatus=='Accepted'">{{item.orderstatus}}</span>
-                                            <span class="badge badge-success rounded" style="background-color:blue!important" ng-if="item.orderstatus=='Placed'">{{item.orderstatus}}</span>
-                                            <span class="badge badge-danger rounded" ng-if="item.orderstatus=='Cancalled'">{{item.orderstatus}}</span>
-                                            <span class="badge badge-success rounded" ng-if="item.orderstatus=='Delivered'">{{item.orderstatus}}</span>
-                                            <span class="badge badge-success rounded" style="background-color:lightgrey!important" ng-if="item.orderstatus=='InProcess'">{{item.orderstatus}}</span>
-                                            <span class="badge badge-success rounded" style="background-color:purple!important" ng-if="item.orderstatus=='Shipped'">{{item.orderstatus}}</span>
-                                        </td>
-                                    </tr>
 
-                                </tbody>
-                            </table>
-                        </div>
-                        <!--<button class="btn btn-outline-success rounded-pill btn-sm"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg> Download as xls</button>-->
-                    </div>
-           
-               <div class="card" style="display:none">
-                   <div style="overflow-x:auto;">
-                       <table>
-                           <tr>
-                               <th>Order Nubmer</th>
-                               <th style="min-width: 100px !important;">Order Date</th>
-                               <th style="min-width: 100px !important;">Amount</th>
-                               <th>Order Status</th>
-                               <th style="min-width: 80px !important;">Action</th>
-                           </tr>
-                           <tr ng-repeat="item in CustomerOrders.data|filter: {orderNumber: searchText }">
-                               <td>{{item.orderNumber}} </td>
-                               <td>{{item.orderdate| date:"dd.MM.YYYY"}}</td>
-                               <td>{{item.total|currency:"₹ "}}</td>
-                               <td><span class="label label-warning"> {{item.orderstatus}}</span></td>
-                               <td><a href=""  class="btn btn-primary  btn-sm"><i style="color:white" class="fa fa-eye"></i></a> <a href="" ng-click="Cancleorderitem(item.id)" class="btn btn-primary  btn-sm"><i style="color:white" class="fa fa-close"></i></a></td>
-                           </tr>
-                       </table>
-                   </div>
-               </div>
-                    <!--<div class="col-md-6">
-                        <select class="form-control" style="width:64px" ng-change="loadingroder(loadnumber)" ng-model="loadnumber">
-                            <option>5</option>
-                            <option>25</option>
-                            <option>50</option>
-                            <option>All</option>
-                        </select>
-                    </div>-->
-                 
-                    <!--<div class="col-md-6">
-                        <input type='text' class="form-control" ng-model='searchText' placeholder="Search a order number" />
+                <h3>My Orders</h3><hr>
+                <div style="overflow-x:auto;">
+                    <table class="table table-hover" data-addclass-on-xs="table-sm">
+                        <thead class="thead-light">
+                            <tr>
+                                <th scope="col">Order No.</th>
+                                <th scope="col">Date</th>
+                                <th scope="col" style="min-width:120px">Total</th>
+                                <th scope="col" class="text-center">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="cursor:pointer" ng-repeat="item in CustomerOrders.data| orderBy:'-id'" ng-click="getorderitem(CustomerOrders.customerdetails,item)">
+                                <td><a href="javascript:void(0)">{{item.orderNumber}}</a></td>
+                                <td>{{item.orderdate| date:"dd.MM.YYYY"}}</td>
+                                <td style="min-width:120px">{{item.total|currency:"₹ "}}</td>
+                                <td class="text-center">
+                                    <span class="badge badge-warning rounded" ng-if="item.orderstatus=='Accepted'">{{item.orderstatus}}</span>
+                                    <span class="badge badge-success rounded" style="background-color:blue!important" ng-if="item.orderstatus=='Placed'">{{item.orderstatus}}</span>
+                                    <span class="badge badge-danger rounded" ng-if="item.orderstatus=='Cancalled'">{{item.orderstatus}}</span>
+                                    <span class="badge badge-success rounded" ng-if="item.orderstatus=='Delivered'">{{item.orderstatus}}</span>
+                                    <span class="badge badge-success rounded" style="background-color:lightgrey!important" ng-if="item.orderstatus=='InProcess'">{{item.orderstatus}}</span>
+                                    <span class="badge badge-success rounded" style="background-color:purple!important" ng-if="item.orderstatus=='Shipped'">{{item.orderstatus}}</span>
+                                </td>
+                            </tr>
 
-                    </div>-->
-                    <!--<div class="card">-->
-                        <!--<div class="col-md-12">
-
-                            <table class="table table-bordered bordered table-striped table-condensed">
-                                <thead>
-                                    <tr>
-                                        <th>Order Nubmer</th>
-                                        <th>Order Date</th>
-                                        <th>Total Amount</th>
-                                        <th>Order Status</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr ng-repeat="item in CustomerOrders.data|filter: {orderNumber: searchText }|limitTo:loadnumber">
-                                        <td>{{item.orderNumber}} </td>
-                                        <td>{{item.orderdate| date:"dd.MM.YYYY"}}</td>
-                                        <td>{{item.total|currency:"₹ "}}</td>
-                                        <td><span class="label label-warning"> {{item.orderstatus}}</span></td>
-                                        <td><a href="" ng-click="getorderitem(CustomerOrders.customerdetails,item)" class="btn btn-primary  btn-sm"><i style="color:white" class="fa fa-eye"></i></a> <a href="" ng-click="Cancleorderitem(item.id)" class="btn btn-primary  btn-sm"><i style="color:white" class="fa fa-close"></i></a></td>
-                                    </tr>
-                                </tbody>
-
-                            </table>
-
-                        </div>-->
-                    <!--</div>-->
-               
+                        </tbody>
+                    </table>
+                </div>
+                <!--<button class="btn btn-outline-success rounded-pill btn-sm"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg> Download as xls</button>-->
             </div>
+
+            <div class="card" style="display:none">
+                <div style="overflow-x:auto;">
+                    <table>
+                        <tr>
+                            <th>Order Nubmer</th>
+                            <th style="min-width: 100px !important;">Order Date</th>
+                            <th style="min-width: 100px !important;">Amount</th>
+                            <th>Order Status</th>
+                            <th style="min-width: 80px !important;">Action</th>
+                        </tr>
+                        <tr ng-repeat="item in CustomerOrders.data|filter: {orderNumber: searchText }">
+                            <td>{{item.orderNumber}} </td>
+                            <td>{{item.orderdate| date:"dd.MM.YYYY"}}</td>
+                            <td>{{item.total|currency:"₹ "}}</td>
+                            <td><span class="label label-warning"> {{item.orderstatus}}</span></td>
+                            <td><a href="" class="btn btn-primary  btn-sm"><i style="color:white" class="fa fa-eye"></i></a> <a href="" ng-click="Cancleorderitem(item.id)" class="btn btn-primary  btn-sm"><i style="color:white" class="fa fa-close"></i></a></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <!--<div class="col-md-6">
+                <select class="form-control" style="width:64px" ng-change="loadingroder(loadnumber)" ng-model="loadnumber">
+                    <option>5</option>
+                    <option>25</option>
+                    <option>50</option>
+                    <option>All</option>
+                </select>
+            </div>-->
+            <!--<div class="col-md-6">
+                <input type='text' class="form-control" ng-model='searchText' placeholder="Search a order number" />
+
+            </div>-->
+            <!--<div class="card">-->
+            <!--<div class="col-md-12">
+
+                <table class="table table-bordered bordered table-striped table-condensed">
+                    <thead>
+                        <tr>
+                            <th>Order Nubmer</th>
+                            <th>Order Date</th>
+                            <th>Total Amount</th>
+                            <th>Order Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="item in CustomerOrders.data|filter: {orderNumber: searchText }|limitTo:loadnumber">
+                            <td>{{item.orderNumber}} </td>
+                            <td>{{item.orderdate| date:"dd.MM.YYYY"}}</td>
+                            <td>{{item.total|currency:"₹ "}}</td>
+                            <td><span class="label label-warning"> {{item.orderstatus}}</span></td>
+                            <td><a href="" ng-click="getorderitem(CustomerOrders.customerdetails,item)" class="btn btn-primary  btn-sm"><i style="color:white" class="fa fa-eye"></i></a> <a href="" ng-click="Cancleorderitem(item.id)" class="btn btn-primary  btn-sm"><i style="color:white" class="fa fa-close"></i></a></td>
+                        </tr>
+                    </tbody>
+
+                </table>
+
+            </div>-->
+            <!--</div>-->
+
+        </div>
     </div>
 
 </section>

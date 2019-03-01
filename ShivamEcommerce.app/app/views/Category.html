@@ -1,21 +1,17 @@
-﻿<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <title></title>
-</head>
-<body>
+﻿<section class="section-content my-padding  bg">
     <div class="container">
         <div class="just-padding row">
+
             <div class="list-group well col-md-6" ng-repeat="parentCategory in categories">
 
-                <a class="list-group-item" data-target="#item-{{$index}}" data-toggle="collapse">
+                <a class="list-group-item" data-target="#itemmain-{{$index}}" data-toggle="collapse">
                     <i class="icon-action fa fa-chevron-right" ng-hide="parentCategory.categories1.length==0"></i>
                     <span class="form-check-label">
                         {{parentCategory.categoryName }}
                     </span>
                 </a>
 
-                <div class="list-group collapse card" id="item-{{$index}}">
+                <div class="list-group collapse card" id="itemmain-{{$index}}">
 
                     <div ng-repeat="subcat in parentCategory.categories1">
 
@@ -48,6 +44,4 @@
         </div>
 
     </div>
- 
-</body>
-</html>
+</section>

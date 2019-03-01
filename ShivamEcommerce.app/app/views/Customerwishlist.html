@@ -15,7 +15,7 @@
     </div>
 </section>-->
 
-<section class="section-content bg padding-y">
+<section class="section-content bg my-padding ">
 
     <div class="container">
 
@@ -26,9 +26,9 @@
                         <div class="icontext">
                             <div class="icon-wrap icon-sm border round"><i class="fa fa-user"></i></div>
                         </div>
-                       <h5 class="bold mb-0">{{authentication.userName}}</h5>
+                        <h5 class="bold mb-0">{{authentication.userName}}</h5>
 
-                       
+
                     </div>
 
                     <div class="list-group list-group-flush">
@@ -42,36 +42,36 @@
             </div>
 
 
- 
-                <div class="col-md-9">
-                   
-                    <div class="" ng-hide="CurrentWishList.length==0">
-                  
-                            <h3>My Wishlist Items({{CurrentWishList.length}})</h3><hr>
 
-                            <div class="card card-product card-product-list shadow-none border-bottom" ng-repeat="x in CurrentWishList  track by $index">
-                              
-                                    <div class="row">
-                                        <div class="col-md-2 col-5">
-                                            <a href=""><img class="" style="max-width: 120px ;padding-top: 10px; padding-left: 20px;" src="{{GetProductImage(x.image)}}" alt="Card image cap"></a>
-                                        </div>
+            <div class="col-md-9">
 
-                                        <div class="col-md-10 col-7">
-                                            <a href="shop-single.html" class="">{{x.productName|limitTo:40}}</a>
-                                            <div class="attr">
-                                                <div class="price mr-3"><span class="h5">{{x.productPrice|currency:"₹"}} </span></div>
-                                                <div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle text-success"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg> In Stock</div>
-                                            </div>
-                                            <p class="d-flex justify-content-between align-items-center">
-                                                <button class="btn rounded-pill btn-outline-primary atc-demo" ng-click="AddToCartGlobal(x.productattrId,x,'products-slider-')" data-addclass-on-xs="btn-sm">Add to Cart</button>
-                                                <button class="btn btn-link btn-icon d-inline-flex text-danger" ng-click="RemoveFromwishList(x.id)" data-addclass-on-xs="btn-sm" data-toggle="tooltip" title="" data-original-title="Remove item"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
-                                            </p>
-                                        </div>
-                                    </div>
-                         
+                <div class="" ng-hide="CurrentWishList.length==0">
+
+                    <h3>My Wishlist Items({{CurrentWishList.length}})</h3><hr>
+
+                    <div class="card card-product card-product-list shadow-none border-bottom" ng-repeat="x in CurrentWishList  track by $index">
+
+                        <div class="row">
+                            <div class="col-md-2 col-5">
+                                <a href=""><img class="" style="max-width: 120px ;padding-top: 10px; padding-left: 20px;" src="{{GetProductImage(x.image)}}" alt="Card image cap"></a>
                             </div>
-                    
-                    </div>     
+
+                            <div class="col-md-10 col-7">
+                                <a href="shop-single.html" class="">{{x.productName|limitTo:40}}</a>
+                                <div class="attr">
+                                    <div class="price mr-3"><span class="h5">{{x.productPrice|currency:"₹"}} </span></div>
+                                    <div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle text-success"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg> In Stock</div>
+                                </div>
+                                <p class="d-flex justify-content-between align-items-center">
+                                    <button class="btn rounded-pill btn-outline-primary atc-demo" ng-click="AddToCartGlobal(x.productattrId,x,'products-slider-')" data-addclass-on-xs="btn-sm">Add to Cart</button>
+                                    <button class="btn btn-link btn-icon d-inline-flex text-danger" ng-click="RemoveFromwishList(x.id)" data-addclass-on-xs="btn-sm" data-toggle="tooltip" title="" data-original-title="Remove item"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
                 <div ng-show="CurrentWishList.length==0" class="col-xl-12 wishscroll align-items-center">
 
                     <h4 class="text-center">your wish list is EMPTY</h4>

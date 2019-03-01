@@ -290,22 +290,47 @@ app.controller('indexController', ['$scope','$route', '$rootScope', 'localStorag
          });
     }
 
- 
+
+    $("#searchclear").click(function () {
+        debugger;
+        $scope.search = "";
+        $("#searchclear").css("display", "none");
+
+        $("#searching_text").trigger("click");
+
+    });
 
     $scope.search = "";
     $scope.Goblesearch = function (search) {
         debugger;
-        localStorage.setItem("Searchtext", search);
-        isGlobalSearchActive = true;
-        globalSearchstring = search;
-        var url = $location.url();
-        if (url == "/Product")
-        {
-            $route.reload();
+        if ($scope.search != "") {
+            $("#searchclear").css("display", "block");
+
+
+            //localStorage.setItem("Searchtext", search);
+            isGlobalSearchActive = true;
+            globalSearchstring = search;
+            var url = $location.url();
+            if (url == "/Product") {
+                $route.reload();
+            }
+            else {
+                $location.path("/Product");
+            }
         }
         else {
-            $location.path("/Product");
+            $("#searchclear").css("display", "none");
+            isGlobalSearchActive = true;
+            globalSearchstring = search;
+            var url = $location.url();
+            if (url == "/Product") {
+                $route.reload();
             }
+            else {
+                $location.path("/Product");
+            }
+        }
+        
     }
 
 

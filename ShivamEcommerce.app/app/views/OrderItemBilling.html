@@ -1,12 +1,12 @@
 ﻿
 
-<br/>
-<br />
-<div class="container">
-    <div class="row">
+
+<section class="section-content my-padding bg" style="padding-top: 70px;">
+    <div class="container">
+        <div class="row">
             <div class="col-md-12">
                 <h4 class="d-print-none">
-                    <a id="printInvoice" style="font-size: 15px; color: #069; text-decoration: underline; float: right; position: absolute; z-index: 1; right: 71px; top: -15px" onclick="window.print()" ><i class="fa fa-print" style="font-size: 20px; position:absolute; top:-18px; right: -52px; " aria-hidden="true"></i></a>
+                    <a id="printInvoice" style="font-size: 15px; color: #069; text-decoration: underline; float: right; position: absolute; z-index: 1; right: 71px; top: -15px" onclick="window.print()"><i class="fa fa-print" style="font-size: 20px; position:absolute; top:-18px; right: -52px; " aria-hidden="true"></i></a>
                 </h4>
                 <div id="invoice">
                     <div class="invoice overflow-auto">
@@ -38,11 +38,11 @@
                                         <div class="text-gray-light">INVOICE TO:</div>
                                         <h5 class="to">{{localorderitem.ordShippingaddress[0].name}}</h5>
                                         <div class="address">{{localorderitem.ordShippingaddress[0].address}}</div>
-                                       <div> {{localorderitem.ordShippingaddress[0].city}}-{{localorderitem.ordShippingaddress[0].pincode}}</div>
+                                        <div> {{localorderitem.ordShippingaddress[0].city}}-{{localorderitem.ordShippingaddress[0].pincode}}</div>
                                         <div>{{localorderitem.ordShippingaddress[0].district}}</div>
                                         <div>{{localorderitem.ordShippingaddress[0].state}}</div>
-                                      <strong>Mob:- </strong>  {{localorderitem.ordShippingaddress[0].phone}}
-                                      
+                                        <strong>Mob:- </strong>  {{localorderitem.ordShippingaddress[0].phone}}
+
                                     </div>
                                     <div class="col-md-6 col-6 invoice-details">
 
@@ -73,9 +73,9 @@
                                                 <td class="unit">{{item.unitofprice|currency:"₹ "}}</td>
                                                 <td class="qty">{{item.quantity}}</td>
                                                 <td class="total">{{item.unitofprice*item.quantity|currency:"₹ "}}</td>
-                                                
+
                                             </tr>
-                                         
+
                                         </tbody>
                                         <tfoot>
                                             <tr>
@@ -102,7 +102,7 @@
                                     </table>
 
                                 </div>
-                               
+
                                 <div class="notices">
                                     <div>NOTICE:</div>
                                     <div class="notice" ng-if="!localorderitem.paymentstatus">Payment not Received</div>
@@ -123,10 +123,10 @@
                 </div>
 
             </div>
-        
-        </div>
-</div>
 
+        </div>
+    </div>
+</section>
 
 
 

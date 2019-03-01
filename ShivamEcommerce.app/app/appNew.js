@@ -106,6 +106,13 @@ app.config(function ($routeProvider) {
         controller: "ProductDetailController",
         templateUrl: "/app/views/ProductDetailsNew.html"
     });
+
+    $routeProvider.when("/About", {
+        controller: "AboutusController",
+        templateUrl: "/app/views/AboutusNew.html"
+    });
+
+
     $routeProvider.when("/WishList", {
         controller: "WishListController1",
         templateUrl: "/app/views/Customerwishlist.html"
