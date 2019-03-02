@@ -7,8 +7,8 @@
     .row.m-3:nth-child(even) {
         background-color: #fff;
     }
-
-    .prductimage
+ 
+        .prductimage
     {
         height:120px;
         width:120px;
@@ -62,7 +62,7 @@
         -webkit-box-orient: vertical;
     }
 </style>
-<section class="section-content bg padding-y">
+<section class="section-content bg my-padding">
     <!--<div class="container">
         <ol class="breadcrumb breadcrumb-arrow">
             <li><a href="#/home">Home</a></li>
@@ -84,7 +84,7 @@
                     <div class="">
                         <div class="card">
                             <div class="card-header">
-                                <h4>My Shopping Bag ({{shoppingCart.length}}) <a style="float:right; color:#069" class="clearcart">Clear Cart</a></h4>
+                                <h6>My Shopping Bag ({{shoppingCart.length}}) <!--<a style="float:right; color:#069" class="clearcart">Clear Cart</a>--></h6>
                             </div>
 
                             <div class="card-body">
@@ -98,7 +98,7 @@
                                         </div>
 
                                         <div class="col-md-10 col-9">
-                                            <h4 class="product-name" style="line-height: 16px;" ng-click="SetProduct(item)"><strong style="font-size: 14px; }">{{item.ProductName}}</strong></h4>
+                                            <h6 class="product-name" style="line-height: 16px;" ng-click="SetProduct(item)"><strong style="font-size: 14px; }">{{item.ProductName}}</strong></h6>
                                             <!--<small style="font-size: 55%;">{{item.productDescription|limitTo:100}}</small>-->
                                             <div> {{item.Cost|currency:"₹ "}}</div>
                                             <div class="flex-m flex-w">
@@ -146,7 +146,7 @@
 
                             </div>
                             <div class="col-12 text-sm-center col-sm-12 text-md-left col-md-10">
-                                <h4 class="product-name" ng-click="SetProduct(item)"><strong style="font-size: 16px; }">{{item.ProductName}}</strong></h4>
+                                <h6 class="product-name" ng-click="SetProduct(item)"><strong style="font-size: 16px; }">{{item.ProductName}}</strong></h6>
                                 <!--<h4 style="line-height:0.7">
                                 <small style="font-size: 55%;">{{item.productDescription|limitTo:100}}</small>
 
@@ -204,12 +204,12 @@
 
                     <div style="height:100%" class="card">
                         <div class="card-header">
-                            <h4>Cart detail</h4>
+                            <h6>Cart detail</h6>
                         </div>
                         <div class="card-body">
                             <div>
 
-                                <h4>Cart Subtotal - {{TotalCartItems |currency:"₹ "}}</h4>
+                                <h6>Cart Subtotal - {{TotalCartItems |currency:"₹ "}}</h6>
 
                                 <p style="font-size:14px"><span style="color:green">Your order is eligible for Free Delivery.</span> Select This option at checkout. <a href="">Details</a></p>
 

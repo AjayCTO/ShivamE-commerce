@@ -13,49 +13,55 @@
     <div class="container">
        
         <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header" style="background: #0d47a1;color:white">
+                        <h6>Contact Us</h6>
+                    </div>
+                   
+                    <div class="card-body">
+                        <form role="form">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"> <i class="fa fa-user" aria-hidden="true" style="font-size: 20px;"></i> </span>
+                                    </div>
+                                    <input name="Name" ng-model="contactdetails.name" id="Name" class="form-control" placeholder="Enter your  name" type="text" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"> <i class="fa fa-envelope" aria-hidden="true"></i> </span>
+                                    </div>
+                                    <input name="Email" id="Email" ng-model="contactdetails.EmailAddress" class="form-control" placeholder="Enter your Email" type="Text">
+                                </div>
+                                <span class="errormessage" ng-show="form1.Email.$error.pattern">Email is not valid!</span>
+                            </div>
+                            <div class="form-group">
+                                <textarea id="Messsage" name="Messsage" ng-model="contactdetails.message" rows="5" placeholder="Enter Message" class="form-control" required></textarea>
+                            </div>
+
+
+                            <button class="btn btn-primary large" style="background: #0d47a1; color: #fff" type="submit" data-ng-click="SendMessage()"><i class="fa fa-check"></i> Send</button>
+
+                        </form>
+                    </div>
+                   
+
+
+
+
+
+                </div>
+            </div>
             <div class="col-lg-8">
                 <div id="map-container-google-1" class="z-depth-1-half">
                     <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14472.072072141236!2d73.8257499!3d24.9314561!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x9c6fceaad0f10f06!2sSHIVAM+ITCS!5e0!3m2!1sen!2sin!4v1548827365416" frameborder="0"
                             style="border: 0; width: 100%;border:0;height: 350px;" allowfullscreen></iframe>
                 </div>
             </div>
-            <div class="col-md-4 card">
-                <div class="" style="padding:10px">
-                    <h3 style="font-weight:bold">Contact Us</h3>
-                    <br />
-                    <form role="form">
-                        <div class="form-group">
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text"> <i class="fa fa-user" aria-hidden="true" style="font-size: 20px;"></i> </span>
-                                </div>
-                                <input name="Name" ng-model="contactdetails.name" id="Name" class="form-control" placeholder="Enter your  name" type="text" required>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text"> <i class="fa fa-envelope" aria-hidden="true"></i> </span>
-                                </div>
-                                <input name="Email" id="Email" ng-model="contactdetails.EmailAddress" class="form-control" placeholder="Enter your Email" type="Text">
-                            </div>
-                            <span class="errormessage" ng-show="form1.Email.$error.pattern">Email is not valid!</span>
-                        </div>
-                        <div class="form-group">
-                            <textarea id="Messsage" name="Messsage" ng-model="contactdetails.message" rows="5" placeholder="Enter Message" class="form-control" required></textarea>
-                        </div>
-
-
-                        <button class="btn btn-primary large" type="submit" ng-disabled=!form1.$valid data-ng-click="SendMessage()"><i class="fa fa-check"></i> Send</button>
-
-                    </form>
-
-
-
-
-
-                </div>
-            </div>
+          
 
         </div>
     </div>

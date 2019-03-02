@@ -7,7 +7,9 @@ button {
     outline: none;
     border: none !important;
 }
-
+.topbar-social{
+    padding-left:0px!important;
+}
 .rs3-select2 .select2-container .select2-selection--single {
     height: 45px;
 }

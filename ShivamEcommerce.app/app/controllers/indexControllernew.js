@@ -424,7 +424,7 @@ app.controller('indexController', ['$scope','$route', '$rootScope', 'localStorag
             if (item == undefined) {
                 $scope.CartProductsCounter++;
                 var des = "";
-                var k = 17;
+                var k = 18;
                 if (product.allAttributes == undefined) {
                     for (var i = 0; i < 3 ; i++) {
 

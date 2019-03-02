@@ -158,8 +158,32 @@
 
 
     <style>
-
-
+        .list-group-item.active {
+            background-color: #0d47a1;
+            color: #fff;
+        }
+        .card-header {
+            border-bottom: 0;
+            background-color: #0d47a1 !important;
+            color: #fff;
+        }
+        .ptag{
+            color:#fff;
+            font-size:12px
+        }
+        svg {
+            height:15px;
+        }
+        /*.fa {
+            color: #0d47a1;
+        }*/
+        a:hover {
+            color: #0d47a1 !important;
+        }
+        .btn-primary {
+            background-color: #0d47a1!important;
+            color:#fff!important;
+        }
         .modal-backdrop {
 
             background-color:black;
@@ -186,7 +210,8 @@
             width: 100%;
             z-index: 1000;
             animation: slide-down 0.5s;
-            background-color: #2c387e;
+            background-color: #0d47a1;
+            box-shadow: 10px 10px 10px #b5b5b5;
         }
 
             .sticky .header-icons {
@@ -387,6 +412,12 @@
             background-color: #2c387e;
             color: #fff;
         }
+        .bg {
+            background-color: #eceded !important;
+        }
+        .bg2 {
+            background-color: #eceded !important;
+        }
 
         .noradius {
             border-radius: 0 !important;
@@ -404,6 +435,9 @@
         .my-padding {
             padding-top: 35px;
             padding-bottom: 35px;
+            z-index: 1000;
+            position: relative;
+            border-top: 1px solid #d4d3d3;
         }
     </style>
     <style>
@@ -722,38 +756,37 @@
     </style>
   
 </head>
-<body class="animsition bg2" ng-app="AngularAuthApp" ng-cloak>
+<body class="animsition bg2" ng-app="AngularAuthApp" ng-controller="indexController" ng-cloak>
     <!-- section-header.// -->
 
-    <header class="header2" ng-controller="indexController">
+    <header class="header2 bg2" ng-cloak>
         <!-- Header desktop -->
         <div class="container container-menu-header-v2 p-t-26">
-            <div class="topbar2 bg2">
+            <div class="topbar2 bg2" style="margin-left: -9px;">
                 <!--<div class="topbar-social">
-                    <a href="#" class="topbar-social-item fa fa-facebook"></a>
-                    <a href="#" class="topbar-social-item fa fa-instagram"></a>
-                    <a href="#" class="topbar-social-item fa fa-pinterest-p"></a>
-                    <a href="#" class="topbar-social-item fa fa-snapchat-ghost"></a>
-                    <a href="#" class="topbar-social-item fa fa-youtube-play"></a>
-                </div>-->
-
+            <a href="#" class="topbar-social-item fa fa-facebook"></a>
+            <a href="#" class="topbar-social-item fa fa-instagram"></a>
+            <a href="#" class="topbar-social-item fa fa-pinterest-p"></a>
+            <a href="#" class="topbar-social-item fa fa-snapchat-ghost"></a>
+            <a href="#" class="topbar-social-item fa fa-youtube-play"></a>
+        </div>-->
                 <!-- Logo2 -->
                 <a href="#/home" class="topbar-social">
                     <img src="img/logo.png" alt="IMG-LOGO">
                 </a>
 
                 <div class="topbar-child2">
-                    <div style="border-radius:100%" class="widget-header mr-3">
-                   
-                        <input ng-model="search" class="topsearch"  autocomplete="off" type="text" ng-enter="Goblesearch(search)" name="name" value="" />
+                    <div style="border-radius:100%" class="widget-header btn-group mr-3">
+
+                        <input ng-model="search" class="topsearch" autocomplete="off" type="text" ng-enter="Goblesearch(search)" name="name" value="" />
                         <span style="margin-right: 40px; display:none" id="searchclear" class="fa fa-close"></span>
-                        <span  class="fa fa-search"></span>
+                        <span id="searching_text" class="fa fa-search" style="position: absolute; right: 14px; top: 10px; font-size: 20px; cursor:pointer" ng-click="Goblesearch(search)"> </span>
                     </div>
 
                     <!--<div class="btn-group">
-                        <input id="searchinput" type="search" class="form-control">
-                  
-                    </div>-->
+                <input id="searchinput" type="search" class="form-control">
+
+            </div>-->
 
                     <a href="#/ShoppingCart" class="widget-header mr-3">
 
@@ -791,12 +824,12 @@
 
                     <ul class="nav navbar-nav" data-ng-hide="!authentication.isAuth">
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" style="color:#3F51B5" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" style="color: #0d47a1; cursor: pointer; " id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 
                                 <i class="fa fa-user"></i> &nbsp;{{authentication.userName}}
 
                             </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="z-index:10000">
                                 <a class="dropdown-item" href="#/Profile"> Profile</a>
                                 <a class="dropdown-item" href="#/orders"> My Orders</a>
                                 <a class="dropdown-item" href="#/WishList"> Wishlist</a>
@@ -869,10 +902,10 @@
 
             <!-- Menu -->
             <div class="wrap_menu">
-                <nav class="menu" style="margin-left: -570px;">
+                <nav class="menu" style="margin-left: -662px;">
                     <ul class="main_menu" style="cursor: pointer;">
                         <li>
-                            <a href="#/home"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
+                            <a href="#/home"><i class="fa fa-home" style=" font-size: 18px;" aria-hidden="true"></i> Home</a>
                             <!--<ul class="sub_menu">
                                 <li><a href="index.html">Homepage V1</a></li>
                                 <li><a href="home-02.html">Homepage V2</a></li>
@@ -886,9 +919,9 @@
 
 
                         <li>
-                            <a data-toggle="dropdown" style="font-size: 19px; color: darkolivegreen;" class="nav-link categories"> Categories <i class="fa fa-angle-down"></i></a>
+                            <a data-toggle="dropdown" style="font-size: 19px; color: #0d47a1;" class="nav-link categories"> Categories <i class="fa fa-angle-down"></i></a>
 
-                            <ul aria-labelledby="navbarDropdownMenuLink" class="dropdown-menu">
+                            <ul aria-labelledby="navbarDropdownMenuLink" class="dropdown-menu" style="z-index:10000">
                                 <li ng-if="cat.categories1.length==0" ng-repeat="cat in searchcategories">
                                     <a ng-click="GoToProductsWithCategoryID(cat.id,cat.categoryName)" class="dropdown-item">
                                         {{cat.categoryName}}
@@ -923,11 +956,11 @@
 
 
                         <li>
-                            <a href="about.html"><i class="fa fa-info-circle" aria-hidden="true"></i> About</a>
+                            <a href="#/About"><i class="fa fa-info-circle" style=" font-size: 18px;" aria-hidden="true"></i> About</a>
                         </li>
 
                         <li>
-                            <a href="#/Contact"><i class="fa fa-phone" aria-hidden="true"></i> Contact</a>
+                            <a href="#/Contact"><i class="fa fa-phone" style=" font-size: 18px;" aria-hidden="true"></i> Contact</a>
                         </li>
                     </ul>
                 </nav>
@@ -1014,7 +1047,7 @@
                         <span id="closemenu" onclick="closeNav2()" style="display: none; cursor: pointer; " class="hamburger-inner">
                             <i style="font-size: 38px; margin-right: 18px; color: #fff;" class="fa fa-bars"></i>
                         </span>
-     
+
                     </span>
                 </div>
             </div>
@@ -1036,7 +1069,7 @@
         </div>
 
 
-     
+
 
 
 
@@ -1047,10 +1080,10 @@
                 <div class="modal-content">
 
                     <div class="modal-header">
-                
-                        <button  type="button" class="close" data-dismiss="modal">&times;</button>
+
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
                     </div>
-            
+
                     <!-- Modal Header -->
                     <!-- Modal body -->
                     <div class="modal-body">
@@ -1064,7 +1097,7 @@
 
                             <!--<li class="">
                                 <a data-toggle="collapse" data-target="#collapse22">By Categories <i class="fa fa-angle-down"></i></a>
-                           
+
                                 <ul aria-labelledby="navbarDropdownMenuLink" class="filter-content collapse" id="collapse22">
                                     <li ng-if="cat.categories1.length==0" ng-repeat="cat in searchcategories">
                                         <a ng-click="GoToProductsWithCategoryID(cat.id,cat.categoryName)" class="filter-content collapse">
@@ -1112,11 +1145,11 @@
 
             <div class="row" style=" margin-right: 0px; margin-left: 0px; margin-bottom:8px">
                 <div class="col-10" style="margin-top:-40px">
-                    <img  src="img/logo-colored.png" style="margin-top:-8px;height:40px"alt="Alternate Text">
+                    <img src="img/logo-colored.png" style="margin-top:-8px;height:40px" alt="Alternate Text">
                     <!--<div class="icon-wrap icon-sm border round"><i class="fa fa-user"></i></div><span data-ng-hide="authentication.isAuth"> hello.sign in</span><span data-ng-show="authentication.isAuth"> Hello {{authentication.userName}}</span>-->
                 </div>
-     
-                <div class="col-2 pull-right"  style="color: black ;margin-top:-54px">
+
+                <div class="col-2 pull-right" style="color: black ;margin-top:-54px">
                     <button id="mainmodel" class="closebtn" onclick="closeNav2()">
                         &times;
 
@@ -1124,7 +1157,7 @@
                 </div>
 
             </div>
-          <!--<hr/>-->
+            <!--<hr/>-->
             <!--<div class="row" style=" margin-right: 0px; margin-left: 0px;">
                 <div class="col-4">
                     <button  class="btn btn-primary" style="width:85px">
@@ -1142,8 +1175,8 @@
                     </button>
                 </div>
             </div>-->
-        
-           
+
+
             <ul class="main-menu">
 
 
@@ -1153,34 +1186,33 @@
                 </li>
 
                 <li class="">
-                  
-                        <div style="" class="filter-content collapse show" id="collapse22">
-                            <div class="just-padding">
-                                <div class="list-group list-group-root well" ng-repeat="parentCategory in searchcategories">
-                                
-                                    <a class="list-group-item" data-target="#item-{{$index}}" style="border: none;" data-toggle="collapse">
-                                        <i class="icon-action fa fa-chevron-right" ng-hide="parentCategory.categories1.length==0"></i>
-                                        <span class="form-check-label">
-                                            {{parentCategory.categoryName }}
-                                        </span>
-                                    </a>
-                                    <div class="list-group collapse" id="item-{{$index}}">
-                                        <div class="form-group mb-1 list-group-item" ng-repeat="subcat in parentCategory.categories1" style=" padding-left: 19px">                                         
-                                            <a class="list-group-item" ng-click="GoToProductsWithCategoryID(subcat.id,subcat.categoryName)"  style="border: none;" >
-                                                <i class="icon-action fa fa-chevron-right" ng-hide="subcat.categories1.length==0"></i>
-                                                <span class="form-check-label">
-                                                    {{subcat.categoryName }}
-                                                </span>
-                                            </a>                                          
-                                        </div>
+
+                    <div style="" class="filter-content collapse show" id="collapse22">
+                        <div class="just-padding">
+                            <div class="list-group list-group-root well" ng-repeat="parentCategory in searchcategories">
+
+                                <a class="list-group-item" data-target="#item-{{$index}}" style="border: none;" data-toggle="collapse">
+                                    <i class="icon-action fa fa-chevron-right" ng-hide="parentCategory.categories1.length==0"></i>
+                                    <span class="form-check-label">
+                                        {{parentCategory.categoryName }}
+                                    </span>
+                                </a>
+                                <div class="list-group collapse" id="item-{{$index}}">
+                                    <div class="form-group mb-1 list-group-item" ng-repeat="subcat in parentCategory.categories1" style=" padding-left: 19px">
+                                        <a class="list-group-item" ng-click="GoToProductsWithCategoryID(subcat.id,subcat.categoryName)" style="border: none;">
+                                            <i class="icon-action fa fa-chevron-right" ng-hide="subcat.categories1.length==0"></i>
+                                            <span class="form-check-label">
+                                                {{subcat.categoryName }}
+                                            </span>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
+                        </div>
 
 
-                        </div> <!-- collapse .// -->
+                    </div> <!-- collapse .// -->
                     <!--</article>-->
-
                     <!--<a data-toggle="collapse" data-target="#collapse22">By Categories <i class="fa fa-angle-down"></i></a>
 
                     <ul aria-labelledby="navbarDropdownMenuLink" class="filter-content collapse" id="collapse22">
@@ -1209,17 +1241,17 @@
                     <a href="#/orders">My Orders</a>
                 </li>
 
-                <li data-ng-hide="!authentication.isAuth" >
+                <li data-ng-hide="!authentication.isAuth">
                     <a href="" data-ng-click="logOut()">Sign Out</a>
                 </li>
             </ul>
         </div>
-        
-        
-        
-        
-        
-        
+
+
+
+
+
+
         <!-- Menu Mobile -->
         <!--<div class="wrap-side-menu" >
             <nav class="side-menu">
@@ -1280,12 +1312,13 @@
     <!-- ========================= FOOTER ========================= -->
 
 
- 
 
 
 
-    <footer ng-if="!isRouteLoading" class="bg6 p-t-45 p-b-43 p-l-45 p-r-45">
-        <div class="flex-w">
+
+    <footer ng-if="!isRouteLoading" class="bg6 p-t-45 p-b-43">
+        <div class="flex-w my-padding container">
+
             <div class="w-size6 p-t-30 p-l-15 p-r-15 respon3">
 
 
@@ -1294,11 +1327,9 @@
                     <p>You don't have to wait for the weekends to shop as you can shop online on your way back home after work.</p>
 
                     <div class="flex-m p-t-30">
-                        <a href="#" class="fs-18 color1 p-r-20 fa fa-facebook"></a>
-                        <a href="#" class="fs-18 color1 p-r-20 fa fa-instagram"></a>
-                        <a href="#" class="fs-18 color1 p-r-20 fa fa-pinterest-p"></a>
-                        <a href="#" class="fs-18 color1 p-r-20 fa fa-snapchat-ghost"></a>
-                        <a href="#" class="fs-18 color1 p-r-20 fa fa-youtube-play"></a>
+                        <a href="#" class="p-r-20 fa fa-facebook"></a>
+                        <a href="#" class="p-r-20 fa fa-instagram"></a>
+
                     </div>
                 </div>
             </div>
@@ -1309,29 +1340,12 @@
                 </h4>
 
                 <ul>
-                    <li class="p-b-9">
-                        <a href="#" class="s-text7">
-                            Men
+                    <li class="p-b-9" ng-repeat="cat in searchcategories">
+                        <a href="" ng-click="GoToProductsWithCategoryID(cat.id,cat.categoryName)">
+                            {{cat.categoryName}}
                         </a>
                     </li>
 
-                    <li class="p-b-9">
-                        <a href="#" class="s-text7">
-                            Women
-                        </a>
-                    </li>
-
-                    <li class="p-b-9">
-                        <a href="#" class="s-text7">
-                            Dresses
-                        </a>
-                    </li>
-
-                    <li class="p-b-9">
-                        <a href="#" class="s-text7">
-                            Sunglasses
-                        </a>
-                    </li>
                 </ul>
             </div>
 
@@ -1341,27 +1355,27 @@
                 </h4>
 
                 <ul>
-                    <li class="p-b-9">
-                        <a href="#" class="s-text7">
-                            Search
-                        </a>
-                    </li>
+                    <!--<li class="p-b-9">
+                    <a href="#" class="s-text7">
+                        Search
+                    </a>
+                </li>-->
 
                     <li class="p-b-9">
-                        <a href="#" class="s-text7">
+                        <a href="#/About" class="s-text7">
                             About Us
                         </a>
                     </li>
 
                     <li class="p-b-9">
-                        <a href="#" class="s-text7">
+                        <a href="#/Contact" class="s-text7">
                             Contact Us
                         </a>
                     </li>
 
                     <li class="p-b-9">
-                        <a href="#" class="s-text7">
-                            Returns
+                        <a href="#/Category" class="s-text7">
+                            All Category
                         </a>
                     </li>
                 </ul>
@@ -1379,17 +1393,16 @@
                         </a>
                     </li>
 
-                    <li class="p-b-9">
-                        <a href="#" class="s-text7">
-                            Returns
-                        </a>
-                    </li>
-
-                    <li class="p-b-9">
-                        <a href="#" class="s-text7">
-                            Shipping
-                        </a>
-                    </li>
+                    <!--<li class="p-b-9">
+                    <a href="#" class="s-text7">
+                        Returns
+                    </a>
+                </li>-->
+                    <!--<li class="p-b-9">
+                    <a href="#" class="s-text7">
+                        Shipping
+                    </a>
+                </li>-->
 
                     <li class="p-b-9">
                         <a href="#" class="s-text7">
@@ -1416,7 +1429,7 @@
 
                     <div class="w-size2 p-t-20">
                         <!-- Button -->
-                        <button ng-click="Goblesearch(search)" style="background: #2c387e; color:#fff" class="flex-c-m size2 bg4 bo-rad-23 hov1 m-text3 trans-0-4">
+                        <button ng-click="Goblesearch(search)" style="background: #0d47a1; color: #fff" class="flex-c-m size2 bg4 bo-rad-23 hov1 m-text3 trans-0-4">
                             Find Me !!
                         </button>
                     </div>
@@ -1427,168 +1440,9 @@
 
 
     </footer>
-    <div class="t-center" ng-if="!isRouteLoading" style="display:none"> 
-
-
-        <div style="background:#ccc" class="t-center s-text8 p-t-20 p-b-20">
-            Copyright © 2019 <a href="#"> Shivam ITCS </a> ALL Right Reserved
-        </div>
-    </div>
-    <footer class="main-footer" style="display:none;">
-        <!-- Service Block-->
-        <div class="services-block">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-4 d-flex justify-content-center justify-content-lg-start">
-                        <div class="item d-flex align-items-center">
-                            <div class="icon"><i class="fa fa-truck"></i></div>
-                            <div class="text">
-                                <h6 class="no-margin text-uppercase">Free shipping &amp; return</h6><span>Free Shipping over $300</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 d-flex justify-content-center">
-                        <div class="item d-flex align-items-center">
-                            <div class="icon"><i class="fa fa-money"></i></div>
-                            <div class="text">
-                                <h6 class="no-margin text-uppercase">Money back guarantee</h6><span>30 Days Money Back Guarantee</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 d-flex justify-content-center">
-                        <div class="item d-flex align-items-center">
-                            <div class="icon"><i class="fa fa-headphones"></i></div>
-                            <div class="text">
-                                <h6 class="no-margin text-uppercase"> +91.295.323.2033</h6><span>24/7 Available Support</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Main Block -->
-        <div class="main-block">
-            <div class="container">
-                <div class="row">
-
-                    <div class=" col-lg-4">
-                        <h2>Shivsagar Online</h2>
-                        <p>You don't have to wait for the weekends to shop as you can shop online on your way back home after work.</p>
-                        <ul class="social-menu list-inline">
-                            <li class="list-inline-item"><a href="index.html#" target="_blank" title="twitter"><i class="fa fa-twitter"></i></a></li>
-                            <li class="list-inline-item"><a href="index.html#" target="_blank" title="facebook"><i class="fa fa-facebook"></i></a></li>
-                            <li class="list-inline-item"><a href="index.html#" target="_blank" title="instagram"><i class="fa fa-instagram"></i></a></li>
-                            <li class="list-inline-item"><a href="index.html#" target="_blank" title="pinterest"><i class="fa fa-pinterest"></i></a></li>
-                            <li class="list-inline-item"><a href="index.html#" target="_blank" title="vimeo"><i class="fa fa-vimeo"></i></a></li>
-                        </ul>
-                    </div>
-
-                    <div class="site-links col-lg-2 col-md-6">
-                        <h5 class="text-uppercase">Company</h5>
-                        <ul class="list-unstyled">
-                            <li> <a href="#/login">Login</a></li>
-                            <li> <a href="#/signup">Register</a></li>
-                        </ul>
-                    </div>
-                    <div class="newsletter col-lg-4">
-                        <h5 class="text-uppercase">Daily Offers & Discounts</h5>
-                        <p>Shivsagar Online provide latest products offers and discounts on product to you.</p>
-                        <form action="index.html#" id="newsletter-form">
-                            <div class="form-group">
-                                <input type="email" name="subscribermail" placeholder="Your Email Address">
-                                <button type="submit"> <i class="fa fa-paper-plane"></i></button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="copyrights" style="display:none;">
-            <div class="container">
-                <div class="row d-flex align-items-center">
-                    <div class="text col-md-6">
-                        <p>&COPY;<a href="www.shivamitconsultancy.com" target="_blank">Shivamitconsultancy</a> All rights reserved.</p>
-                    </div>
-                    <div class="payment col-md-6 clearfix">
-                        <ul class="payment-list list-inline-item pull-right">
-                            <li class="list-inline-item">
-                                <!--<img style="width:400px;height:70px" src="img/paypal.png" alt="...">-->
-                            </li>
-                            <!--<li class="list-inline-item"><img src="img/mastercard.svg" alt="..."></li>
-                        <li class="list-inline-item"><img src="img/paypal.svg" alt="..."></li>
-                        <li class="list-inline-item"><img src="img/western-union.svg" alt="..."></li>-->
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <footer class="section-footer bg-secondary" style="display:none;">
-        <div class="container">
-            <section class="footer-top padding-top">
-                <div class="row">
-                    <aside class="col-lg-3 col-sm-4 white">
-                        <h5 class="title">Customer Services</h5>
-                        <ul class="list-unstyled">
-                            <li> <a href="#">Help center</a></li>
-                            <li> <a href="#">Money refund</a></li>
-                            <li> <a href="#">Terms and Policy</a></li>
-                            <li> <a href="#">Open dispute</a></li>
-                        </ul>
-                    </aside>
-                    <aside class="col-lg-3 col-sm-4 white">
-                        <h5 class="title">My Account</h5>
-                        <ul class="list-unstyled">
-                            <li> <a href="#"> User Login </a></li>
-                            <li> <a href="#"> User register </a></li>
-                            <li> <a href="#"> Account Setting </a></li>
-                            <li> <a href="#"> My Orders </a></li>
-                            <li> <a href="#"> My Wishlist </a></li>
-                        </ul>
-                    </aside>
-                    <!--<aside class="col-lg-3 col-sm-4  white">
-                        <h5 class="title">About</h5>
-                        <ul class="list-unstyled">
-                            <li> <a href="#"> Our history </a></li>
-                            <li> <a href="#"> How to buy </a></li>
-                            <li> <a href="#"> Delivery and payment </a></li>
-                            <li> <a href="#"> Advertice </a></li>
-                            <li> <a href="#"> Partnership </a></li>
-                        </ul>
-                    </aside>-->
-                    <aside class="col-lg-3 col-sm-4 ">
-                        <article class="white">
-                            <h5 class="title">Contacts</h5>
-                            <p>
-                                <strong>Phone: </strong> +123456789 <br>
-                                <strong>Fax:</strong> +123456789
-                            </p>
-                            <div class="btn-group white">
-                                <a class="btn btn-facebook" title="Facebook" target="_blank" href="#"><i class="fa fa-facebook-f  fa-fw"></i></a>
-                                <a class="btn btn-instagram" title="Instagram" target="_blank" href="#"><i class="fa fa-instagram  fa-fw"></i></a>
-                                <a class="btn btn-youtube" title="Youtube" target="_blank" href="#"><i class="fa fa-youtube  fa-fw"></i></a>
-                                <a class="btn btn-twitter" title="Twitter" target="_blank" href="#"><i class="fa fa-twitter  fa-fw"></i></a>
-                            </div>
-                        </article>
-                    </aside>
-                </div> <!-- row.// -->
-                <br>
-            </section>
-            <section class="footer-bottom row border-top-white" style="display:none">
-                <div class="col-sm-6">
-                    <p class="text-white-50"> Made  <br>  by SHIVAM ITCS</p>
-                </div>
-                <div class="col-sm-6">
-                    <p class="text-md-right text-white-50">
-                        Copyright &copy  <br>
-                        <a href="http://shivamitconsultancy.com" class="text-white-50">SHIVAM ITCS</a>
-                    </p>
-                </div>
-            </section> <!-- //footer-top -->
-        </div><!-- //container -->
-    </footer>
-    <!-- ========================= FOOTER END // ========================= -->
     
+    <!-- ========================= FOOTER END // ========================= -->
+
     <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY&callback=myMap"></script>
     <!--Custom Js-->
 
@@ -1606,7 +1460,7 @@
     </script>-->
     <script>
 
-        
+
         $(".section-content").click(function () {
             debugger;
             $("#mainmodel").trigger("click");
@@ -1637,11 +1491,8 @@
             document.getElementById("mySidenav2").style.width = "0";
         }
 
-       
 
-        $("#searchclear").click(function () {
-            $(".topsearch").val('');
-        });
+
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.js"></script>
     <!-- Angularjs libraries -->
@@ -1682,5 +1533,7 @@
     <script src="app/controllers/categoryController.js"></script>
     <script src="app/controllers/profileController.js"></script>
     <script src="app/controllers/OrderDetails.js"></script>
+    <script src="app/controllers/AboutusController.js"></script>
 </body>
+
 </html>

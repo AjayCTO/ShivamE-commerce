@@ -16,12 +16,17 @@
 
     </div>
 </section>-->
-
+<style>
+    .card-header {    
+        background-color: #0d47a1 !important;
+        color: #fff;
+    }
+</style>
 
 <section class="section-content bg my-padding ">
     <div class="container">
         <div class="row">
-
+            
             <div class="col-md-4 col-lg-3">
                 <div class="card">
                     <div class="card-body text-center">
@@ -42,37 +47,38 @@
                     </div>
                 </div>
             </div>
+            
+            <div class="col mt-3 mt-md-0 bg">
+                <div class="card">
+                    <!--<h3>My Orders</h3><hr>-->
+                    <div style="overflow-x:auto;">
+                        <table class="table table-hover" data-addclass-on-xs="table-sm">
+                            <thead class="card-header">
+                                <tr>
+                                    <th scope="col">Order No.</th>
+                                    <th scope="col">Date</th>
+                                    <th scope="col" style="min-width:120px">Total</th>
+                                    <th scope="col" class="text-center">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr style="cursor:pointer" ng-repeat="item in CustomerOrders.data| orderBy:'-id'" ng-click="getorderitem(CustomerOrders.customerdetails,item)">
+                                    <td><a href="javascript:void(0)">{{item.orderNumber}}</a></td>
+                                    <td>{{item.orderdate| date:"dd.MM.YYYY"}}</td>
+                                    <td style="min-width:120px">{{item.total|currency:"₹ "}}</td>
+                                    <td class="text-center">
+                                        <span class="badge badge-warning rounded" ng-if="item.orderstatus=='Accepted'">{{item.orderstatus}}</span>
+                                        <span class="badge badge-success rounded" style="background-color:blue!important" ng-if="item.orderstatus=='Placed'">{{item.orderstatus}}</span>
+                                        <span class="badge badge-danger rounded" ng-if="item.orderstatus=='Cancalled'">{{item.orderstatus}}</span>
+                                        <span class="badge badge-success rounded" ng-if="item.orderstatus=='Delivered'">{{item.orderstatus}}</span>
+                                        <span class="badge badge-success rounded" style="background-color:lightgrey!important" ng-if="item.orderstatus=='InProcess'">{{item.orderstatus}}</span>
+                                        <span class="badge badge-success rounded" style="background-color:purple!important" ng-if="item.orderstatus=='Shipped'">{{item.orderstatus}}</span>
+                                    </td>
+                                </tr>
 
-            <div class="col-md-8">
-
-                <h3>My Orders</h3><hr>
-                <div style="overflow-x:auto;">
-                    <table class="table table-hover" data-addclass-on-xs="table-sm">
-                        <thead class="thead-light">
-                            <tr>
-                                <th scope="col">Order No.</th>
-                                <th scope="col">Date</th>
-                                <th scope="col" style="min-width:120px">Total</th>
-                                <th scope="col" class="text-center">Status</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr style="cursor:pointer" ng-repeat="item in CustomerOrders.data| orderBy:'-id'" ng-click="getorderitem(CustomerOrders.customerdetails,item)">
-                                <td><a href="javascript:void(0)">{{item.orderNumber}}</a></td>
-                                <td>{{item.orderdate| date:"dd.MM.YYYY"}}</td>
-                                <td style="min-width:120px">{{item.total|currency:"₹ "}}</td>
-                                <td class="text-center">
-                                    <span class="badge badge-warning rounded" ng-if="item.orderstatus=='Accepted'">{{item.orderstatus}}</span>
-                                    <span class="badge badge-success rounded" style="background-color:blue!important" ng-if="item.orderstatus=='Placed'">{{item.orderstatus}}</span>
-                                    <span class="badge badge-danger rounded" ng-if="item.orderstatus=='Cancalled'">{{item.orderstatus}}</span>
-                                    <span class="badge badge-success rounded" ng-if="item.orderstatus=='Delivered'">{{item.orderstatus}}</span>
-                                    <span class="badge badge-success rounded" style="background-color:lightgrey!important" ng-if="item.orderstatus=='InProcess'">{{item.orderstatus}}</span>
-                                    <span class="badge badge-success rounded" style="background-color:purple!important" ng-if="item.orderstatus=='Shipped'">{{item.orderstatus}}</span>
-                                </td>
-                            </tr>
-
-                        </tbody>
-                    </table>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
                 <!--<button class="btn btn-outline-success rounded-pill btn-sm"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg> Download as xls</button>-->
             </div>

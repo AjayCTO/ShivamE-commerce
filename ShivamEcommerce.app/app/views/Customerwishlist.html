@@ -43,15 +43,16 @@
 
 
 
-            <div class="col-md-9">
-
-                <div class="" ng-hide="CurrentWishList.length==0">
-
-                    <h3>My Wishlist Items({{CurrentWishList.length}})</h3><hr>
-
-                    <div class="card card-product card-product-list shadow-none border-bottom" ng-repeat="x in CurrentWishList  track by $index">
-
+            <div class="col mt-3 mt-md-0">
+                <div ng-hide="CurrentWishList.length==0" class="card-header">
+                    <h6>My Wishlist Items({{CurrentWishList.length}})</h6>
+                </div>
+                <div class="card" ng-hide="CurrentWishList.length==0">
+                  
+                    <div class="border-bottom" ng-repeat="x in CurrentWishList  track by $index">
+                      
                         <div class="row">
+                       
                             <div class="col-md-2 col-5">
                                 <a href=""><img class="" style="max-width: 120px ;padding-top: 10px; padding-left: 20px;" src="{{GetProductImage(x.image)}}" alt="Card image cap"></a>
                             </div>
@@ -60,11 +61,12 @@
                                 <a href="shop-single.html" class="">{{x.productName|limitTo:40}}</a>
                                 <div class="attr">
                                     <div class="price mr-3"><span class="h5">{{x.productPrice|currency:"₹"}} </span></div>
-                                    <div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle text-success"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg> In Stock</div>
+                                    <!--<div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle text-success"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg> In Stock</div>-->
                                 </div>
                                 <p class="d-flex justify-content-between align-items-center">
-                                    <button class="btn rounded-pill btn-outline-primary atc-demo" ng-click="AddToCartGlobal(x.productattrId,x,'products-slider-')" data-addclass-on-xs="btn-sm">Add to Cart</button>
-                                    <button class="btn btn-link btn-icon d-inline-flex text-danger" ng-click="RemoveFromwishList(x.id)" data-addclass-on-xs="btn-sm" data-toggle="tooltip" title="" data-original-title="Remove item"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
+                                    <button class="btn rounded-pill btn-primary atc-demo" ng-click="AddToCartGlobal(x.productattrId,x,'products-slider-')" data-addclass-on-xs="btn-sm">Add to Cart</button>
+                                    <button class="btn rounded-pill btn-danger" ng-click="RemoveFromwishList(x.id)" data-addclass-on-xs="btn-sm">Remove</button>
+                                    <!--<button class="btn btn-link btn-icon d-inline-flex text-danger"  data-addclass-on-xs="btn-sm" data-toggle="tooltip" title="" data-original-title="Remove item"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>-->
                                 </p>
                             </div>
                         </div>
@@ -72,9 +74,9 @@
                     </div>
 
                 </div>
-                <div ng-show="CurrentWishList.length==0" class="col-xl-12 wishscroll align-items-center">
+                <div ng-show="CurrentWishList.length==0" class="col-xl-12 wishscroll align-items-center" style="padding:40px">
 
-                    <h4 class="text-center">your wish list is EMPTY</h4>
+                    <h6 class="text-center">your wish list is EMPTY</h6>
                     <p class="text-center">Save your favorite item in one place. Add now, buy later.</p>
                     <div class="text-center"><img src="../../img/emptyWishlist.png" height="150" /></div>
                     <div class="text-center"><a href="#/Product" class="btn btn-template wide">Continue Shopping</a></div>
